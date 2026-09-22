@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="ky" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мишель — Изысканное Кафе и Кофейня</title>
+    <title id="t-title">Мишель — Изысканное Кафе и Кофейня</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -11,18 +11,24 @@
             theme: {
                 extend: {
                     colors: {
-                        cream: {
-                            50: '#fdfbf7',
-                            100: '#f7f2e8',
-                            200: '#ede4d3',
-                            300: '#dfd2bc',
+                        darkblue: {
+                            900: '#070b19',
+                            800: '#0f172a',
+                            700: '#1e293b',
+                            600: '#334155',
                         },
-                        cafe: {
-                            dark: '#2c2621',
-                            muted: '#6b5e53',
-                            gold: '#b89768',
-                            goldHover: '#a38255',
-                            accent: '#8c6d48'
+                        roseflower: {
+                            50: '#fff1f4',
+                            100: '#ffe4ea',
+                            400: '#fb7185',
+                            500: '#f43f5e',
+                            600: '#e11d48',
+                            700: '#be123c',
+                            glow: '#ff2a6d'
+                        },
+                        gold: {
+                            DEFAULT: '#d9a74a',
+                            hover: '#c1923d'
                         }
                     },
                     fontFamily: {
@@ -33,98 +39,115 @@
             }
         }
     </script>
-    <!-- Google Fonts: Playfair Display & Inter -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
-    <!-- FontAwesome for icons -->
+    <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #fdfbf7;
-            color: #2c2621;
+            background-color: #070b19;
+            color: #f8fafc;
         }
         h1, h2, h3, h4, .font-serif {
             font-family: 'Playfair Display', Georgia, serif;
         }
-        /* Custom scrollbar */
+        .floral-hanging-bg {
+            background-image: linear-gradient(to bottom, rgba(7, 11, 25, 0.75), rgba(15, 23, 42, 0.90)), 
+                              url('https://images.unsplash.com/photo-1526047932273-341f2a7631f9?auto=format&fit=crop&w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            box-shadow: inset 0 0 50px rgba(244, 63, 94, 0.25);
+        }
+        .glow-pink-text {
+            text-shadow: 0 0 15px rgba(244, 63, 94, 0.6);
+        }
+        .glow-pink-border {
+            box-shadow: 0 0 20px rgba(244, 63, 94, 0.2);
+        }
         ::-webkit-scrollbar {
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #f7f2e8;
+            background: #0f172a;
         }
         ::-webkit-scrollbar-thumb {
-            background: #dfd2bc;
+            background: #f43f5e;
             border-radius: 4px;
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: #b89768;
+            background: #e11d48;
         }
     </style>
 </head>
-<body class="bg-cream-50 text-cafe-dark antialiased selection:bg-cream-200 selection:text-cafe-dark flex flex-col min-h-screen">
+<body class="bg-darkblue-900 text-gray-100 antialiased selection:bg-roseflower-500 selection:text-white flex flex-col min-h-screen">
 
     <!-- Header -->
-    <header class="sticky top-0 z-40 bg-cream-50/90 backdrop-blur-md border-b border-cream-200 transition-all duration-300">
+    <header class="sticky top-0 z-40 bg-darkblue-900/90 backdrop-blur-md border-b border-roseflower-500/20 transition-all duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <!-- Brand Logo -->
             <a href="#" class="flex items-center space-x-3 group">
-                <div class="w-12 h-12 rounded-full border border-cafe-gold/50 flex items-center justify-center bg-cream-100 group-hover:bg-cream-200 transition">
-                    <i class="fa-solid fa-mug-hot text-cafe-gold text-lg"></i>
+                <div class="w-12 h-12 rounded-full border border-roseflower-500/60 flex items-center justify-center bg-roseflower-500/20 group-hover:bg-roseflower-500/40 transition glow-pink-border">
+                    <i class="fa-solid fa-spa text-roseflower-400 text-lg"></i>
                 </div>
                 <div>
-                    <span class="text-2xl font-serif font-bold tracking-wider text-cafe-dark">МИШЕЛЬ</span>
-                    <span class="block text-[10px] uppercase tracking-widest text-cafe-muted">кафе & кофейня</span>
+                    <span class="text-2xl font-serif font-bold tracking-wider text-white">МИШЕЛЬ</span>
+                    <span id="t-logo-sub" class="block text-[10px] uppercase tracking-widest text-roseflower-400 font-semibold">🌸 гүлдүү кафе & кофейня</span>
                 </div>
             </a>
 
-            <!-- Desktop Navigation Links -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
-                <a href="#menu-section" class="text-cafe-dark hover:text-cafe-gold transition">Меню</a>
-                <a href="#constructor-section" class="text-cafe-dark hover:text-cafe-gold transition">Конструктор завтрака</a>
-                <a href="#about-section" class="text-cafe-dark hover:text-cafe-gold transition">О нас</a>
+                <a href="#menu-section" class="text-gray-300 hover:text-roseflower-400 transition" data-i18n="nav-menu">Меню</a>
+                <a href="#constructor-section" class="text-gray-300 hover:text-roseflower-400 transition" data-i18n="nav-breakfast">Эртең мененки тамак</a>
+                <a href="#about-section" class="text-gray-300 hover:text-roseflower-400 transition" data-i18n="nav-about">Биз жөнүндө</a>
             </nav>
 
-            <!-- Actions (Cart & Mobile menu toggle) -->
-            <div class="flex items-center space-x-4">
-                <button onclick="openCart()" class="relative bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300 p-3 rounded-full transition flex items-center justify-center shadow-sm">
-                    <i class="fa-solid fa-bag-shopping text-lg text-cafe-gold"></i>
-                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-cafe-gold text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+            <div class="flex items-center space-x-3">
+                <!-- Lang Switcher -->
+                <div class="flex bg-darkblue-800 border border-roseflower-500/30 rounded-full p-0.5 text-xs font-semibold">
+                    <button onclick="setLanguage('ky')" id="lang-ky" class="px-2.5 py-1 rounded-full transition bg-roseflower-600 text-white">KG</button>
+                    <button onclick="setLanguage('ru')" id="lang-ru" class="px-2.5 py-1 rounded-full transition text-gray-300 hover:text-white">RU</button>
+                    <button onclick="setLanguage('en')" id="lang-en" class="px-2.5 py-1 rounded-full transition text-gray-300 hover:text-white">EN</button>
+                </div>
+
+                <button onclick="openCart()" class="relative bg-darkblue-800 hover:bg-darkblue-700 text-gray-200 border border-roseflower-500/30 p-2.5 rounded-full transition flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-bag-shopping text-base text-roseflower-400"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-roseflower-600 text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
                 </button>
-                <button onclick="toggleMobileMenu()" class="md:hidden text-cafe-dark p-2 text-xl">
+                <button onclick="toggleMobileMenu()" class="md:hidden text-gray-200 p-2 text-xl">
                     <i class="fa-solid fa-bars"></i>
                 </button>
             </div>
         </div>
 
-        <!-- Mobile Menu Drawer -->
-        <div id="mobile-menu" class="hidden md:hidden bg-cream-100 border-b border-cream-200 px-6 py-4 space-y-3">
-            <a href="#menu-section" onclick="toggleMobileMenu()" class="block text-cafe-dark font-medium py-1">Меню</a>
-            <a href="#constructor-section" onclick="toggleMobileMenu()" class="block text-cafe-dark font-medium py-1">Конструктор завтрака</a>
-            <a href="#about-section" onclick="toggleMobileMenu()" class="block text-cafe-dark font-medium py-1">О нас</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-darkblue-800 border-b border-roseflower-500/20 px-6 py-4 space-y-3">
+            <a href="#menu-section" onclick="toggleMobileMenu()" class="block text-gray-200 font-medium py-1" data-i18n="nav-menu">Меню</a>
+            <a href="#constructor-section" onclick="toggleMobileMenu()" class="block text-gray-200 font-medium py-1" data-i18n="nav-breakfast">Эртең мененки тамак</a>
+            <a href="#about-section" onclick="toggleMobileMenu()" class="block text-gray-200 font-medium py-1" data-i18n="nav-about">Биз жөнүндө</a>
         </div>
     </header>
 
-    <!-- Hero Banner -->
-    <section class="relative bg-cream-100 py-16 lg:py-24 border-b border-cream-200 overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#b89768_1px,transparent_1px)] [background-size:16px_16px]"></div>
+    <!-- Hero Banner with Hanging Pink Flowers Aesthetic -->
+    <section class="relative floral-hanging-bg py-24 lg:py-36 border-b border-roseflower-500/20 overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-t from-darkblue-900 via-transparent to-transparent"></div>
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <span class="inline-block text-xs uppercase tracking-[0.25em] text-cafe-gold font-semibold mb-3 bg-cream-200/60 px-4 py-1.5 rounded-full">Авторская кухня & Атмосфера</span>
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-cafe-dark mb-6 tracking-tight">
-                Не еда, это стиль
+            <span id="hero-badge" class="inline-block text-xs uppercase tracking-[0.25em] text-roseflower-300 font-bold mb-4 bg-roseflower-600/30 px-5 py-2 rounded-full border border-roseflower-500/50 shadow-lg glow-pink-text">
+                🌸 Шыптан төгүлгөн розовый гүлдөр & Темно-синий салкын бархат
+            </span>
+            <h1 id="hero-title" class="text-4xl sm:text-6xl font-serif font-bold text-white mb-6 tracking-tight">
+                Гүлдөргө чулганган <span class="text-roseflower-400 glow-pink-text">сыйкырдуу</span> атмосфера
             </h1>
-            <p class="max-w-2xl mx-auto text-cafe-muted text-base sm:text-lg mb-8 leading-relaxed font-light">
-                Мишель — это больше чем кофейня. Это воплощение добра, любви и заботы о природе и людях. Изысканные рецепты из Средиземноморья и душевные завтраки весь день.
+            <p id="hero-desc" class="max-w-2xl mx-auto text-gray-300 text-base sm:text-lg mb-8 leading-relaxed font-light">
+                «Мишель» кафесине кош келиңиз! Башыңыздан ылдый илинип турган кооз розовый гүлдөр, темно-синий жайлуу дивандар жана эстетикалык фото зоналар сизди күтөт.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="#menu-section" class="bg-cafe-gold hover:bg-cafe-goldHover text-white px-8 py-3.5 rounded-full font-medium transition shadow-sm tracking-wide">
-                    Смотреть меню
+                <a href="#menu-section" class="bg-roseflower-600 hover:bg-roseflower-700 text-white px-8 py-3.5 rounded-full font-medium transition shadow-lg shadow-roseflower-600/30 tracking-wide" data-i18n="btn-view-menu">
+                    Менюну көрүү
                 </a>
-                <a href="#constructor-section" class="bg-cream-50 hover:bg-cream-200 text-cafe-dark border border-cream-300 px-8 py-3.5 rounded-full font-medium transition tracking-wide">
-                    Собрать завтрак
+                <a href="#constructor-section" class="bg-darkblue-800/90 hover:bg-darkblue-700 text-gray-200 border border-roseflower-500/40 px-8 py-3.5 rounded-full font-medium transition tracking-wide backdrop-blur-sm" data-i18n="btn-collect">
+                    Тамак чогултуу
                 </a>
             </div>
         </div>
@@ -136,128 +159,103 @@
         <!-- Menu Section -->
         <section id="menu-section" class="mb-16">
             <div class="text-center mb-10">
-                <span class="text-xs uppercase tracking-widest text-cafe-gold font-semibold">Наши предложения</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-cafe-dark mt-1">Меню заведения</h2>
-                <div class="w-16 h-0.5 bg-cafe-gold mx-auto mt-3"></div>
+                <span class="text-xs uppercase tracking-widest text-roseflower-400 font-semibold" data-i18n="menu-subtitle">Даамдуу тамактар</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1" data-i18n="menu-title">Фирмалык Меню</h2>
+                <div class="w-20 h-0.5 bg-roseflower-500 mx-auto mt-3 shadow-[0_0_10px_#f43f5e]"></div>
             </div>
 
             <!-- Category Filter Tabs -->
             <div class="flex overflow-x-auto pb-4 mb-8 space-x-3 justify-start sm:justify-center scrollbar-none">
-                <button onclick="filterCategory('all')" id="tab-all" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cafe-gold text-white shadow-sm">
-                    Все блюда
-                </button>
-                <button onclick="filterCategory('salads')" id="tab-salads" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
-                    Салаты
-                </button>
-                <button onclick="filterCategory('breakfasts')" id="tab-breakfasts" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
-                    Завтраки
-                </button>
-                <button onclick="filterCategory('soups')" id="tab-soups" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
-                    Супы
-                </button>
-                <button onclick="filterCategory('hot')" id="tab-hot" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
-                    Горячие блюда
-                </button>
-                <button onclick="filterCategory('pizza')" id="tab-pizza" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
-                    Пицца
-                </button>
-                <button onclick="filterCategory('rolls')" id="tab-rolls" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
-                    Роллы / Бутерброды
-                </button>
+                <button onclick="filterCategory('all')" id="tab-all" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-roseflower-600 text-white shadow-lg shadow-roseflower-600/30" data-i18n="cat-all">Бардыгы</button>
+                <button onclick="filterCategory('salads')" id="tab-salads" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-darkblue-800 hover:bg-darkblue-700 text-gray-300 border border-roseflower-500/30" data-i18n="cat-salads">Салаттар</button>
+                <button onclick="filterCategory('breakfasts')" id="tab-breakfasts" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-darkblue-800 hover:bg-darkblue-700 text-gray-300 border border-roseflower-500/30" data-i18n="cat-breakfasts">Эртең мененки тамак</button>
+                <button onclick="filterCategory('soups')" id="tab-soups" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-darkblue-800 hover:bg-darkblue-700 text-gray-300 border border-roseflower-500/30" data-i18n="cat-soups">Суптар</button>
+                <button onclick="filterCategory('hot')" id="tab-hot" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-darkblue-800 hover:bg-darkblue-700 text-gray-300 border border-roseflower-500/30" data-i18n="cat-hot">Ысык тамактар</button>
+                <button onclick="filterCategory('pizza')" id="tab-pizza" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-darkblue-800 hover:bg-darkblue-700 text-gray-300 border border-roseflower-500/30" data-i18n="cat-pizza">Пицца</button>
+                <button onclick="filterCategory('rolls')" id="tab-rolls" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-darkblue-800 hover:bg-darkblue-700 text-gray-300 border border-roseflower-500/30" data-i18n="cat-rolls">Роллдор / Круассан</button>
             </div>
 
             <!-- Dishes Grid -->
-            <div id="dishes-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Dynamically populated via JavaScript -->
-            </div>
+            <div id="dishes-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
         </section>
 
         <!-- Breakfast Constructor Section -->
-        <section id="constructor-section" class="mb-20 bg-cream-100/70 border border-cream-200 rounded-3xl p-6 sm:p-10 shadow-sm">
+        <section id="constructor-section" class="mb-20 bg-darkblue-800/90 border border-roseflower-500/30 rounded-3xl p-6 sm:p-10 shadow-2xl backdrop-blur-md glow-pink-border">
             <div class="text-center mb-8">
-                <span class="text-xs uppercase tracking-widest text-cafe-gold font-semibold">Соберите идеальное утро</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-cafe-dark mt-1">Конструктор завтрака</h2>
-                <p class="text-sm text-cafe-muted mt-2">Работает с 6:00 до 12:00. Выберите основу и дополните любимыми ингредиентами.</p>
-                <div class="w-16 h-0.5 bg-cafe-gold mx-auto mt-3"></div>
+                <span class="text-xs uppercase tracking-widest text-roseflower-400 font-semibold" data-i18n="constr-badge">🌸 Табигый таттуу эртең менен</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1" data-i18n="constr-title">Эртең мененки тамакты чогултуу</h2>
+                <p class="text-sm text-gray-400 mt-2" data-i18n="constr-desc">Сиз каалаган ингредиенттерди тандап, өзүңүздүн уникалдуу эртең мененки тамагыңызды түзүңүз.</p>
+                <div class="w-20 h-0.5 bg-roseflower-500 mx-auto mt-3 shadow-[0_0_10px_#f43f5e]"></div>
             </div>
 
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Constructor Options Controls -->
                 <div class="lg:col-span-2 space-y-6">
-                    <!-- Base Selection -->
-                    <div class="bg-cream-50 p-5 rounded-2xl border border-cream-200">
-                        <h3 class="font-serif font-bold text-lg text-cafe-dark mb-3 flex items-center justify-between">
-                            <span>1. Выберите основу (обязательно)</span>
-                            <span class="text-xs font-sans text-cafe-gold uppercase bg-cream-100 px-2.5 py-1 rounded-md">База</span>
+                    <div class="bg-darkblue-900/80 p-5 rounded-2xl border border-roseflower-500/20">
+                        <h3 class="font-serif font-bold text-lg text-white mb-3 flex items-center justify-between">
+                            <span data-i18n="constr-step1">1. Негизги тамакты тандаңыз</span>
+                            <span class="text-xs font-sans text-roseflower-400 uppercase bg-roseflower-600/20 px-2.5 py-1 rounded-md border border-roseflower-500/30" data-i18n="constr-base-tag">База</span>
                         </h3>
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="constructor-bases">
-                            <!-- Populated via JS -->
-                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="constructor-bases"></div>
                     </div>
 
-                    <!-- Toppings Selection -->
-                    <div class="bg-cream-50 p-5 rounded-2xl border border-cream-200">
-                        <h3 class="font-serif font-bold text-lg text-cafe-dark mb-3">2. Дополнить начинкой по вкусу</h3>
-                        <div class="space-y-4" id="constructor-toppings-groups">
-                            <!-- Populated via JS -->
-                        </div>
+                    <div class="bg-darkblue-900/80 p-5 rounded-2xl border border-roseflower-500/20">
+                        <h3 class="font-serif font-bold text-lg text-white mb-3" data-i18n="constr-step2">2. Кошумчалар</h3>
+                        <div class="space-y-4" id="constructor-toppings-groups"></div>
                     </div>
                 </div>
 
-                <!-- Constructor Summary Card -->
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 flex flex-col justify-between h-fit sticky top-28 shadow-sm">
+                <div class="bg-darkblue-900 p-6 rounded-2xl border border-roseflower-500/30 flex flex-col justify-between h-fit sticky top-28 shadow-xl">
                     <div>
-                        <h3 class="font-serif font-bold text-xl text-cafe-dark mb-4 border-b border-cream-200 pb-3">Ваш завтрак</h3>
-                        <div id="constructor-selected-list" class="space-y-2 mb-6 text-sm text-cafe-muted min-h-[120px]">
-                            <p class="italic text-gray-400">Выберите основу для начала...</p>
+                        <h3 class="font-serif font-bold text-xl text-white mb-4 border-b border-roseflower-500/20 pb-3" data-i18n="constr-summary-title">Сиздин тандооңуз</h3>
+                        <div id="constructor-selected-list" class="space-y-2 mb-6 text-sm text-gray-300 min-h-[120px]">
+                            <p class="italic text-gray-500" data-i18n="constr-empty">Башташ үчүн базаны тандаңыз...</p>
                         </div>
                     </div>
-                    <div class="border-t border-cream-200 pt-4">
+                    <div class="border-t border-roseflower-500/20 pt-4">
                         <div class="flex items-center justify-between mb-4">
-                            <span class="font-medium text-cafe-dark">Итоговая стоимость:</span>
-                            <span id="constructor-total" class="text-2xl font-serif font-bold text-cafe-gold">0 сом</span>
+                            <span class="font-medium text-gray-300" data-i18n="constr-total">Жалпы наркы:</span>
+                            <span id="constructor-total" class="text-2xl font-serif font-bold text-roseflower-400">0 сом</span>
                         </div>
-                        <button onclick="addConstructorToCart()" id="constructor-btn" disabled class="w-full bg-cafe-gold/50 cursor-not-allowed text-white py-3.5 rounded-xl font-medium transition shadow-sm">
-                            Добавить в корзину
+                        <button onclick="addConstructorToCart()" id="constructor-btn" disabled class="w-full bg-gray-700 cursor-not-allowed text-gray-400 py-3.5 rounded-xl font-medium transition shadow-md" data-i18n="btn-add-cart">
+                            Себетке кошуу
                         </button>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- About Us & Philosophy Section -->
-        <section id="about-section" class="mb-16 bg-cream-100/50 border border-cream-200 rounded-3xl p-8 sm:p-12">
+        <!-- About Us Section -->
+        <section id="about-section" class="mb-16 bg-darkblue-800/60 border border-roseflower-500/30 rounded-3xl p-8 sm:p-12 shadow-xl">
             <div class="max-w-3xl mx-auto text-center mb-10">
-                <span class="text-xs uppercase tracking-widest text-cafe-gold font-semibold">Философия заведения</span>
-                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-cafe-dark mt-1">О нас</h2>
-                <p class="text-cafe-muted mt-4 text-base sm:text-lg leading-relaxed">
-                    Мишель — это больше чем кофейня или коммерческая организация. Это — олицетворение добра, любви и заботы о природе и людях. Следуя за своей мечтой, основательница кофейни Мишель решила создать мир, где люди чтят Её Величество «Матушку Землю» и не нарушают гармонию с природой.
+                <span class="text-xs uppercase tracking-widest text-roseflower-400 font-semibold" data-i18n="about-badge">🌸 Кафеніздин өзгөчөлүгү</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-white mt-1" data-i18n="about-title">Биз жөнүндө</h2>
+                <p id="about-desc" class="text-gray-300 mt-4 text-base sm:text-lg leading-relaxed">
+                    «Мишель» — бул жөн гана кофейня эмес, бул чыныгы гүл багы жана эстетикалык борбор. Шыпты толугу менен каптаган розовый гүлдөр, темно-синий бархат дивандар жана жагымдуу музыка сиздин эс алууңузду сонун өткөрөт.
                 </p>
-                <div class="w-16 h-0.5 bg-cafe-gold mx-auto mt-6"></div>
+                <div class="w-20 h-0.5 bg-roseflower-500 mx-auto mt-6 shadow-[0_0_10px_#f43f5e]"></div>
             </div>
 
-            <!-- Eco & Spec Badges Grid -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
-                    <h3 class="font-serif font-bold text-lg text-cafe-dark mb-3 flex items-center">
-                        <i class="fa-solid fa-seedling text-cafe-gold mr-2.5"></i> Экологические принципы
+                <div class="bg-darkblue-900/80 p-6 rounded-2xl border border-roseflower-500/20">
+                    <h3 class="font-serif font-bold text-lg text-white mb-3 flex items-center">
+                        <i class="fa-solid fa-spa text-roseflower-400 mr-2.5"></i> <span data-i18n="about-card1-title">Интерьер жана Гүлдөр</span>
                     </h3>
-                    <ul class="space-y-2 text-sm text-cafe-muted">
-                        <li class="flex items-start"><i class="fa-solid fa-check text-cafe-gold mt-1 mr-2 text-xs"></i> Отказ от одноразового пластика и пластиковых бутылок.</li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-cafe-gold mt-1 mr-2 text-xs"></i> Использование бесконтактного QR-меню и сортировка отходов.</li>
-                        <li class="flex items-start"><i class="fa-solid fa-check text-cafe-gold mt-1 mr-2 text-xs"></i> Ежегодная высадка деревьев в столице и энергосберегающие печи.</li>
+                    <ul class="space-y-2 text-sm text-gray-300">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-roseflower-400 mt-1 mr-2 text-xs"></i> <span data-i18n="about-card1-li1">Шыптан салаңдап түшкөн миңдеген розовый гүлдөр.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-roseflower-400 mt-1 mr-2 text-xs"></i> <span data-i18n="about-card1-li2">Премиум класс деңгээлиндеги темно-синий ыңгайлуу дивандар.</span></li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-roseflower-400 mt-1 mr-2 text-xs"></i> <span data-i18n="about-card1-li3">Инстаграм жана TikTok үчүн эң сонун фото зоналар.</span></li>
                     </ul>
                 </div>
 
-                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
-                    <h3 class="font-serif font-bold text-lg text-cafe-dark mb-3 flex items-center">
-                        <i class="fa-solid fa-heart text-cafe-gold mr-2.5"></i> Символы и рацион питания
+                <div class="bg-darkblue-900/80 p-6 rounded-2xl border border-roseflower-500/20">
+                    <h3 class="font-serif font-bold text-lg text-white mb-3 flex items-center">
+                        <i class="fa-solid fa-heart text-roseflower-400 mr-2.5"></i> <span data-i18n="about-card2-title">Биздин артыкчылыктар</span>
                     </h3>
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-cafe-muted">
-                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-cream-200 flex items-center justify-center font-bold text-cafe-gold">👑</span><span>Рекомендация Мишель</span></div>
-                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-cream-200 flex items-center justify-center font-bold text-cafe-gold">🌿</span><span>Вегетарианская позиция</span></div>
-                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-cream-200 flex items-center justify-center font-bold text-cafe-gold">🌾</span><span>Безглютеновая позиция</span></div>
-                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-cream-200 flex items-center justify-center font-bold text-cafe-gold">🥛</span><span>Безлактозная позиция</span></div>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-300">
+                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-roseflower-600/20 flex items-center justify-center font-bold text-roseflower-400">👑</span><span data-i18n="adv-1">Шеф-поварь сунушу</span></div>
+                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-roseflower-600/20 flex items-center justify-center font-bold text-roseflower-400">🌿</span><span data-i18n="adv-2">Жаңы таза азыктар</span></div>
+                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-roseflower-600/20 flex items-center justify-center font-bold text-roseflower-400">☕</span><span data-i18n="adv-3">Атайын автордук кофе</span></div>
+                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-roseflower-600/20 flex items-center justify-center font-bold text-roseflower-400">🚀</span><span data-i18n="adv-4">Ыкчам жеткирүү</span></div>
                     </div>
                 </div>
             </div>
@@ -265,89 +263,83 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-cream-200/60 border-t border-cream-300 mt-auto py-10">
+    <footer class="bg-darkblue-900 border-t border-roseflower-500/20 mt-auto py-10">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-full border border-cafe-gold/50 flex items-center justify-center bg-cream-100">
-                    <i class="fa-solid fa-mug-hot text-cafe-gold"></i>
+                <div class="w-10 h-10 rounded-full border border-roseflower-500/40 flex items-center justify-center bg-roseflower-500/20">
+                    <i class="fa-solid fa-spa text-roseflower-400"></i>
                 </div>
                 <div>
-                    <span class="text-lg font-serif font-bold text-cafe-dark">МИШЕЛЬ</span>
-                    <span class="block text-[10px] uppercase tracking-widest text-cafe-muted">все права защищены © 2026</span>
+                    <span class="text-lg font-serif font-bold text-white">МИШЕЛЬ</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-gray-400" data-i18n="footer-rights">Бардык укуктар корголгон © 2026</span>
                 </div>
             </div>
-            <div class="text-sm text-cafe-muted text-center md:text-right">
-                <p>Заказы оформляются через WhatsApp мгновенно.</p>
-                <p class="text-cafe-gold font-medium mt-1"><i class="fa-brands fa-whatsapp mr-1"></i> +996 500 000 000</p>
+            <div class="text-sm text-gray-400 text-center md:text-right">
+                <p data-i18n="footer-wa-text">WhatsApp аркылуу тез буюртма бериңиз.</p>
+                <p class="text-roseflower-400 font-medium mt-1"><i class="fa-brands fa-whatsapp mr-1"></i> +996 500 000 000</p>
             </div>
         </div>
     </footer>
 
-    <!-- Cart & Checkout Slide-over Modal -->
+    <!-- Cart Slide-over Modal -->
     <div id="cart-modal" class="fixed inset-0 z-50 overflow-hidden hidden">
-        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onclick="closeCart()"></div>
+        <div class="absolute inset-0 bg-black/70 backdrop-blur-sm transition-opacity" onclick="closeCart()"></div>
         <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
-            <div class="w-screen max-w-md bg-cream-50 shadow-2xl flex flex-col border-l border-cream-200">
-                <!-- Cart Header -->
-                <div class="p-6 border-b border-cream-200 flex items-center justify-between bg-cream-100">
-                    <h2 class="text-xl font-serif font-bold text-cafe-dark flex items-center">
-                        <i class="fa-solid fa-bag-shopping text-cafe-gold mr-2.5"></i> Ваша корзина
+            <div class="w-screen max-w-md bg-darkblue-800 shadow-2xl flex flex-col border-l border-roseflower-500/30 text-gray-100">
+                <div class="p-6 border-b border-roseflower-500/20 flex items-center justify-between bg-darkblue-900">
+                    <h2 class="text-xl font-serif font-bold text-white flex items-center">
+                        <i class="fa-solid fa-bag-shopping text-roseflower-400 mr-2.5"></i> <span data-i18n="cart-title">Сиздин себет</span>
                     </h2>
-                    <button onclick="closeCart()" class="text-cafe-muted hover:text-cafe-dark text-xl p-1">
+                    <button onclick="closeCart()" class="text-gray-400 hover:text-white text-xl p-1">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
 
-                <!-- Cart Body Items -->
-                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
-                    <!-- Populated via JS -->
-                </div>
+                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4"></div>
 
-                <!-- Checkout Form & Total Footer -->
-                <div id="cart-footer" class="border-t border-cream-200 p-6 bg-cream-100/60">
+                <div id="cart-footer" class="border-t border-roseflower-500/20 p-6 bg-darkblue-900/80">
                     <div id="checkout-form-container">
                         <div class="flex justify-between items-center mb-4">
-                            <span class="font-medium text-cafe-dark">Итого к оплате:</span>
-                            <span id="cart-total-price" class="text-2xl font-serif font-bold text-cafe-gold">0 сом</span>
+                            <span class="font-medium text-gray-300" data-i18n="cart-total">Жалпы төлөм:</span>
+                            <span id="cart-total-price" class="text-2xl font-serif font-bold text-roseflower-400">0 сом</span>
                         </div>
 
                         <form id="order-form" onsubmit="submitOrderToWhatsApp(event)" class="space-y-3">
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Ваше имя *</label>
-                                <input type="text" id="order-name" required placeholder="Введите ваше имя" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold">
+                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-1" data-i18n="form-name">Атыңыз *</label>
+                                <input type="text" id="order-name" required placeholder="Атыңызды жазыңыз" class="w-full bg-darkblue-900 border border-roseflower-500/30 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-roseflower-500">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Номер телефона *</label>
-                                <input type="tel" id="order-phone" required placeholder="+996 XXX XXXXXX" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold">
+                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-1" data-i18n="form-phone">Телефон номериңиз *</label>
+                                <input type="tel" id="order-phone" required placeholder="+996 XXX XXXXXX" class="w-full bg-darkblue-900 border border-roseflower-500/30 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-roseflower-500">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Способ получения</label>
-                                <select id="order-type" onchange="toggleDeliveryAddress()" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold">
-                                    <option value="Доставка">Доставка курьером</option>
-                                    <option value="Самовывоз">Самовывоз из кафе</option>
+                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-1" data-i18n="form-type">Алуу ыкмасы</label>
+                                <select id="order-type" onchange="toggleDeliveryAddress()" class="w-full bg-darkblue-900 border border-roseflower-500/30 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-roseflower-500">
+                                    <option value="Доставка" data-i18n="opt-delivery">Курьер менен жеткирүү</option>
+                                    <option value="Самовывоз" data-i18n="opt-pickup">Кафеден өзү алып кетүү</option>
                                 </select>
                             </div>
-                            <!-- Филлиал тандах бөлүмү -->
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Филиал *</label>
-                                <select id="order-branch" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold">
-                                    <option value="Филиал: ул. Киевская, 114 (Центр)">ул. Киевская, 114 (Центр)</option>
-                                    <option value="Филиал: пр. Ч. Айтматова, 30 (Южная магистраль)">пр. Ч. Айтматова, 30 (Южная магистраль)</option>
-                                    <option value="Филиал: мкр. Тунгуч, ул. Шабдан Баатыра, 4/1">мкр. Тунгуч, ул. Шабдан Баатыра, 4/1</option>
+                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-1" data-i18n="form-branch">Филиал *</label>
+                                <select id="order-branch" class="w-full bg-darkblue-900 border border-roseflower-500/30 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-roseflower-500">
+                                    <option value="Филиал: Киев көч., 114 (Борбор)" data-i18n="branch-1">Киев көч., 114 (Борбор)</option>
+                                    <option value="Филиал: Ч. Айтматов пр., 30 (Түштүк магистраль)" data-i18n="branch-2">Ч. Айтматов пр., 30 (Түштүк магистраль)</option>
+                                    <option value="Филиал: Тынчтык көч., 4/1" data-i18n="branch-3">Тынчтык көч., 4/1</option>
                                 </select>
                             </div>
                             <div id="address-field-wrapper">
-                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Адрес доставки *</label>
-                                <input type="text" id="order-address" placeholder="Улица, дом, квартира" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold">
+                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-1" data-i18n="form-address">Жеткирүү дареги *</label>
+                                <input type="text" id="order-address" placeholder="Көчө, үй, батир" class="w-full bg-darkblue-900 border border-roseflower-500/30 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-roseflower-500">
                             </div>
                             <div>
-                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Комментарий к заказу</label>
-                                <textarea id="order-comment" rows="2" placeholder="Пожелания по заказу..." class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold resize-none"></textarea>
+                                <label class="block text-xs font-semibold uppercase text-gray-400 mb-1" data-i18n="form-comment">Кошумча каалоолор</label>
+                                <textarea id="order-comment" rows="2" placeholder="Тамакка карата каалоолор..." class="w-full bg-darkblue-900 border border-roseflower-500/30 rounded-xl px-4 py-2.5 text-sm text-white focus:outline-none focus:border-roseflower-500 resize-none"></textarea>
                             </div>
 
-                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2 mt-2">
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3.5 rounded-xl transition shadow-lg flex items-center justify-center space-x-2 mt-2">
                                 <i class="fa-brands fa-whatsapp text-lg"></i>
-                                <span>Отправить заказ в WhatsApp</span>
+                                <span data-i18n="btn-whatsapp">WhatsApp аркылуу жөнөтүү</span>
                             </button>
                         </form>
                     </div>
@@ -356,349 +348,570 @@
         </div>
     </div>
 
-    <!-- Notification Toast / Modal -->
-    <div id="notification-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
-        <div class="bg-cream-50 border border-cream-200 rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl">
-            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+    <!-- Notification Modal -->
+    <div id="notification-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden px-4">
+        <div class="bg-darkblue-800 border border-roseflower-500/40 rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl text-gray-100">
+            <div class="w-16 h-16 bg-emerald-500/20 text-emerald-400 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl border border-emerald-500/30">
                 <i class="fa-solid fa-check"></i>
             </div>
-            <h3 class="text-2xl font-serif font-bold text-cafe-dark mb-2">Заказ сформирован!</h3>
-            <p id="notification-text" class="text-sm text-cafe-muted mb-6">Мы открываем WhatsApp с готовым текстом вашего заказа для отправки администратору.</p>
-            <button onclick="closeNotification()" class="w-full bg-cafe-gold text-white py-3 rounded-xl font-medium transition">
-                Понятно
+            <h3 class="text-2xl font-serif font-bold text-white mb-2" data-i18n="modal-ready">Буюртма даяр!</h3>
+            <p id="notification-text" class="text-sm text-gray-300 mb-6" data-i18n="modal-desc">Администраторго жөнөтүү үчүн WhatsApp ачылууда.</p>
+            <button onclick="closeNotification()" class="w-full bg-roseflower-600 hover:bg-roseflower-700 text-white py-3 rounded-xl font-medium transition shadow-lg shadow-roseflower-600/30" data-i18n="modal-btn">
+                Түшүнүктүү
             </button>
         </div>
     </div>
 
-    <!-- Application Script -->
     <script>
-        // Menu Data inspired by authentic cafe menu screenshots
+        // Translations Dictionary
+        const translations = {
+            ky: {
+                "t-title": "Мишель — Изысканное Кафе и Кофейня",
+                "nav-menu": "Меню",
+                "nav-breakfast": "Эртең мененки тамак",
+                "nav-about": "Биз жөнүндө",
+                "t-logo-sub": "🌸 гүлдүү кафе & кофейня",
+                "hero-badge": "🌸 Шыптан төгүлгөн розовый гүлдөр & Темно-синий салкын бархат",
+                "hero-title": "Гүлдөргө чулганган <span class='text-roseflower-400 glow-pink-text'>сыйкырдуу</span> атмосфера",
+                "hero-desc": "«Мишель» кафесине кош келиңиз! Башыңыздан ылдый илинип турган кооз розовый гүлдөр, темно-синий жайлуу дивандар жана эстетикалык фото зоналар сизди күтөт.",
+                "btn-view-menu": "Менюну көрүү",
+                "btn-collect": "Тамак чогултуу",
+                "menu-subtitle": "Даамдуу тамактар",
+                "menu-title": "Фирмалык Меню",
+                "cat-all": "Бардыгы",
+                "cat-salads": "Салаттар",
+                "cat-breakfasts": "Эртең мененки тамак",
+                "cat-soups": "Суптар",
+                "cat-hot": "Ысык тамактар",
+                "cat-pizza": "Пицца",
+                "cat-rolls": "Роллдор / Круассан",
+                "constr-badge": "🌸 Табигый таттуу эртең менен",
+                "constr-title": "Эртең мененки тамакты чогултуу",
+                "constr-desc": "Сиз каалаган ингредиенттерди тандап, өзүңүздүн уникалдуу эртең мененки тамагыңызды түзүңүз.",
+                "constr-step1": "1. Негизги тамакты тандаңыз",
+                "constr-base-tag": "База",
+                "constr-step2": "2. Кошумчалар",
+                "constr-summary-title": "Сиздин тандооңуз",
+                "constr-empty": "Башташ үчүн базаны тандаңыз...",
+                "constr-total": "Жалпы наркы:",
+                "btn-add-cart": "Себетке кошуу",
+                "about-badge": "🌸 Кафеніздин өзгөчөлүгү",
+                "about-title": "Биз жөнүндө",
+                "about-desc": "«Мишель» — бул жөн гана кофейня эмес, бул чыныгы гүл багы жана эстетикалык борбор. Шыпты толугу менен каптаган розовый гүлдөр, темно-синий бархат дивандар жана жагымдуу музыка сиздин эс алууңузду сонун өткөрөт.",
+                "about-card1-title": "Интерьер жана Гүлдөр",
+                "about-card1-li1": "Шыптан салаңдап түшкөн миңдеген розовый гүлдөр.",
+                "about-card1-li2": "Премиум класс деңгээлиндеги темно-синий ыңгайлуу дивандар.",
+                "about-card1-li3": "Инстаграм жана TikTok үчүн эң сонун фото зоналар.",
+                "about-card2-title": "Биздин артыкчылыктар",
+                "adv-1": "Шеф-поварь сунушу",
+                "adv-2": "Жаңы таза азыктар",
+                "adv-3": "Атайын автордук кофе",
+                "adv-4": "Ыкчам жеткирүү",
+                "footer-rights": "Бардык укуктар корголгон © 2026",
+                "footer-wa-text": "WhatsApp аркылуу тез буюртма бериңиз.",
+                "cart-title": "Сиздин себет",
+                "cart-total": "Жалпы төлөм:",
+                "form-name": "Атыңыз *",
+                "form-phone": "Телефон номериңиз *",
+                "form-type": "Алуу ыкмасы",
+                "opt-delivery": "Курьер менен жеткирүү",
+                "opt-pickup": "Кафеден өзү алып кетүү",
+                "form-branch": "Филиал *",
+                "branch-1": "Киев көч., 114 (Борбор)",
+                "branch-2": "Ч. Айтматов пр., 30 (Түштүк магистраль)",
+                "branch-3": "Тынчтык көч., 4/1",
+                "form-address": "Жеткирүү дареги *",
+                "form-comment": "Кошумча каалоолор",
+                "btn-whatsapp": "WhatsApp аркылуу жөнөтүү",
+                "modal-ready": "Буюртма даяр!",
+                "modal-desc": "Администраторго жөнөтүү үчүн WhatsApp ачылууда.",
+                "modal-btn": "Түшүнүктүү"
+            },
+            ru: {
+                "t-title": "Мишель — Изысканное Кафе и Кофейня",
+                "nav-menu": "Меню",
+                "nav-breakfast": "Завтраки",
+                "nav-about": "О нас",
+                "t-logo-sub": "🌸 цветочная кафе & кофейня",
+                "hero-badge": "🌸 Розовые цветы на потолке & Прохладный темно-синий бархат",
+                "hero-title": "Погрузитесь в <span class='text-roseflower-400 glow-pink-text'>волшебную</span> атмосферу цветов",
+                "hero-desc": "Добро пожаловать в кафе «Мишель»! Вас ждут свисающие сверху красивые розовые цветы, уютные темно-синие диваны и эстетичные фотозоны.",
+                "btn-view-menu": "Смотреть меню",
+                "btn-collect": "Собрать блюдо",
+                "menu-subtitle": "Вкусные блюда",
+                "menu-title": "Фирменное Меню",
+                "cat-all": "Все",
+                "cat-salads": "Салаты",
+                "cat-breakfasts": "Завтраки",
+                "cat-soups": "Супы",
+                "cat-hot": "Горячие блюда",
+                "cat-pizza": "Пицца",
+                "cat-rolls": "Роллы / Круассан",
+                "constr-badge": "🌸 Природное сладкое утро",
+                "constr-title": "Конструктор Завтрака",
+                "constr-desc": "Выберите желаемые ингредиенты и создайте свой уникальный завтрак.",
+                "constr-step1": "1. Выберите основу",
+                "constr-base-tag": "База",
+                "constr-step2": "2. Добавки",
+                "constr-summary-title": "Ваш выбор",
+                "constr-empty": "Выберите основу, чтобы начать...",
+                "constr-total": "Общая стоимость:",
+                "btn-add-cart": "Добавить в корзину",
+                "about-badge": "🌸 Особенности нашего кафе",
+                "about-title": "О нас",
+                "about-desc": "«Мишель» — это не просто кофейня, это настоящий цветочный сад и эстетический центр. Потолок, полностью покрытый розовыми цветами, темно-синий бархатный диван и приятная музыка подарят вам прекрасный отдых.",
+                "about-card1-title": "Интерьер и Цветы",
+                "about-card1-li1": "Тысячи свисающих с потолка розовых цветов.",
+                "about-card1-li2": "Уютные темно-синие диваны премиум-класса.",
+                "about-card1-li3": "Отличные фотозоны для Instagram и TikTok.",
+                "about-card2-title": "Наши преимущества",
+                "adv-1": "Рекомендация шеф-повара",
+                "adv-2": "Свежие чистые продукты",
+                "adv-3": "Фирменный авторский кофе",
+                "adv-4": "Быстрая доставка",
+                "footer-rights": "Все права защищены © 2026",
+                "footer-wa-text": "Заказывайте быстро через WhatsApp.",
+                "cart-title": "Ваша корзина",
+                "cart-total": "Итого к оплате:",
+                "form-name": "Ваше имя *",
+                "form-phone": "Ваш номер телефона *",
+                "form-type": "Способ получения",
+                "opt-delivery": "Доставка курьером",
+                "opt-pickup": "Самовывоз из кафе",
+                "form-branch": "Филиал *",
+                "branch-1": "ул. Киевская, 114 (Центр)",
+                "branch-2": "пр. Ч. Айтматова, 30 (Южная магистраль)",
+                "branch-3": "ул. Тынычтык, 4/1",
+                "form-address": "Адрес доставки *",
+                "form-comment": "Дополнительные пожелания",
+                "btn-whatsapp": "Отправить через WhatsApp",
+                "modal-ready": "Заказ готов!",
+                "modal-desc": "Открывается WhatsApp для отправки администратору.",
+                "modal-btn": "Понятно"
+            },
+            en: {
+                "t-title": "Michelle — Exquisite Cafe and Coffee Shop",
+                "nav-menu": "Menu",
+                "nav-breakfast": "Breakfast",
+                "nav-about": "About Us",
+                "t-logo-sub": "🌸 floral cafe & coffee shop",
+                "hero-badge": "🌸 Hanging Pink Flowers & Dark Blue Velvet",
+                "hero-title": "Immerse in a <span class='text-roseflower-400 glow-pink-text'>magical</span> floral atmosphere",
+                "hero-desc": "Welcome to Michelle Cafe! Gorgeous pink flowers hanging overhead, cozy dark blue sofas, and aesthetic photo zones await you.",
+                "btn-view-menu": "View Menu",
+                "btn-collect": "Build Breakfast",
+                "menu-subtitle": "Delicious meals",
+                "menu-title": "Signature Menu",
+                "cat-all": "All",
+                "cat-salads": "Salads",
+                "cat-breakfasts": "Breakfast",
+                "cat-soups": "Soups",
+                "cat-hot": "Hot Dishes",
+                "cat-pizza": "Pizza",
+                "cat-rolls": "Rolls / Croissant",
+                "constr-badge": "🌸 Natural sweet morning",
+                "constr-title": "Breakfast Constructor",
+                "constr-desc": "Choose your desired ingredients and create your unique breakfast.",
+                "constr-step1": "1. Choose base",
+                "constr-base-tag": "Base",
+                "constr-step2": "2. Toppings",
+                "constr-summary-title": "Your Selection",
+                "constr-empty": "Select a base to start...",
+                "constr-total": "Total cost:",
+                "btn-add-cart": "Add to Cart",
+                "about-badge": "🌸 Cafe Features",
+                "about-title": "About Us",
+                "about-desc": "Michelle is not just a coffee shop, it is a real flower garden and aesthetic center. The ceiling completely covered with pink flowers, dark blue velvet sofas, and pleasant music will make your rest wonderful.",
+                "about-card1-title": "Interior & Flowers",
+                "about-card1-li1": "Thousands of pink flowers hanging from the ceiling.",
+                "about-card1-li2": "Premium class comfortable dark blue sofas.",
+                "about-card1-li3": "Great photo zones for Instagram and TikTok.",
+                "about-card2-title": "Our Advantages",
+                "adv-1": "Chef's recommendation",
+                "adv-2": "Fresh clean products",
+                "adv-3": "Special signature coffee",
+                "adv-4": "Fast delivery",
+                "footer-rights": "All rights reserved © 2026",
+                "footer-wa-text": "Order quickly via WhatsApp.",
+                "cart-title": "Your Cart",
+                "cart-total": "Total payment:",
+                "form-name": "Your Name *",
+                "form-phone": "Your Phone Number *",
+                "form-type": "Receiving Method",
+                "opt-delivery": "Courier Delivery",
+                "opt-pickup": "Pickup from Cafe",
+                "form-branch": "Branch *",
+                "branch-1": "Kyiv str., 114 (Center)",
+                "branch-2": "Ch. Aitmatov ave., 30 (South)",
+                "branch-3": "Tynychtyk str., 4/1",
+                "form-address": "Delivery Address *",
+                "form-comment": "Additional notes",
+                "btn-whatsapp": "Send via WhatsApp",
+                "modal-ready": "Order Ready!",
+                "modal-desc": "Opening WhatsApp to send to the administrator.",
+                "modal-btn": "Got it"
+            }
+        };
+
+        let currentLang = 'ky';
+
+        function setLanguage(lang) {
+            currentLang = lang;
+            ['ky', 'ru', 'en'].forEach(l => {
+                const btn = document.getElementById(`lang-${l}`);
+                if (l === lang) {
+                    btn.className = 'px-2.5 py-1 rounded-full transition bg-roseflower-600 text-white';
+                } else {
+                    btn.className = 'px-2.5 py-1 rounded-full transition text-gray-300 hover:text-white';
+                }
+            });
+
+            // Update static elements
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+
+            // Specific IDs
+            document.getElementById('t-title').innerText = translations[lang]['t-title'];
+            document.getElementById('t-logo-sub').innerText = translations[lang]['t-logo-sub'];
+            document.getElementById('hero-badge').innerText = translations[lang]['hero-badge'];
+            document.getElementById('hero-title').innerHTML = translations[lang]['hero-title'];
+            document.getElementById('hero-desc').innerText = translations[lang]['hero-desc'];
+            document.getElementById('about-desc').innerText = translations[lang]['about-desc'];
+
+            // Re-render dishes and constructor to reflect language if needed
+            renderMenu(currentActiveCategory);
+            renderConstructor();
+            updateConstructorSummary();
+        }
+
+        // Dish data with multilingual support
         const menuDishes = [
-            // Салаты
             {
                 id: 'salad-1',
                 category: 'salads',
-                name: 'Со шпинатом и тофу',
+                names: { ky: 'Шпинат жана тофу салаты', ru: 'Салат со шпинатом и тофу', en: 'Spinach and Tofu Salad' },
                 weight: '230 г',
                 price: 530,
-                description: 'Состав: сыр тофу веган, томаты, шпинат, соус.',
+                descriptions: {
+                    ky: 'Курамы: веган тофу сыры, помидор, шпинат, автордук соус.',
+                    ru: 'Состав: веганский сыр тофу, помидоры, шпинат, авторский соус.',
+                    en: 'Ingredients: vegan tofu cheese, tomatoes, spinach, signature sauce.'
+                },
                 tags: ['🌿', '🌾'],
                 image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80'
             },
             {
                 id: 'salad-2',
                 category: 'salads',
-                name: 'Хумус с томатами',
+                names: { ky: 'Помидор кошулган хумус', ru: 'Хумус с помидорами', en: 'Hummus with Tomatoes' },
                 weight: '270 г',
                 price: 470,
-                description: 'Состав: нут хумус, томаты, вяленый томат, руккола, кунжут, багет на закваске.',
+                descriptions: {
+                    ky: 'Курамы: нот хумус, помидор, кургатылган помидор, руккола, кунжут.',
+                    ru: 'Состав: нутовый хумус, томаты, вяленые томаты, руккола, кунжут.',
+                    en: 'Ingredients: chickpea hummus, tomatoes, sun-dried tomatoes, arugula, sesame.'
+                },
                 tags: ['🌿'],
                 image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80'
             },
             {
                 id: 'salad-3',
                 category: 'salads',
-                name: 'Теплый салат с телятиной',
+                names: { ky: 'Жылуу тилятина салаты', ru: 'Теплый салат с телятиной', en: 'Warm Veal Salad' },
                 weight: '280 г',
                 price: 760,
-                description: 'Состав: телятина, сыр брынза, томаты, шпинат, руккола, пикантный фирменный соус.',
+                descriptions: {
+                    ky: 'Курамы: жумшак тилятина, брынза сыры, помидор, шпинат, пиканттуу фирмалык соус.',
+                    ru: 'Состав: нежная телятина, сыр брынза, томаты, шпинат, пикантный фирменный соус.',
+                    en: 'Ingredients: tender veal, bryndza cheese, tomatoes, spinach, spicy signature sauce.'
+                },
                 tags: ['👑'],
                 image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'
             },
             {
                 id: 'salad-4',
                 category: 'salads',
-                name: 'Салат с халуми',
+                names: { ky: 'Халуми сыры менен салат', ru: 'Салат с сыром халуми', en: 'Halloumi Cheese Salad' },
                 weight: '250 г',
                 price: 640,
-                description: 'Состав: сыр халуми, сыр пармезан, томаты черри, огурцы, шпинат, айсберг, соус.',
+                descriptions: {
+                    ky: 'Курамы: халуми сыры, пармезан, черри помидорлору, бадыраң, шпинат, соус.',
+                    ru: 'Состав: сыр халуми, пармезан, помидоры черри, огурцы, шпинат, соус.',
+                    en: 'Ingredients: halloumi cheese, parmesan, cherry tomatoes, cucumbers, spinach, sauce.'
+                },
                 tags: ['🌿'],
                 image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80'
             },
             {
                 id: 'salad-5',
                 category: 'salads',
-                name: 'Тартар из форели',
+                names: { ky: 'Форель тартары', ru: 'Тартар из форели', en: 'Trout Tartare' },
                 weight: '220 г',
                 price: 995,
-                description: 'Состав: форель, авокадо, капуста, фиолетовый лук, лимон, специи.',
+                descriptions: {
+                    ky: 'Курамы: жаңы форель балыгы, авокадо, капуста, фиолет пияз, лимон, жыпар жыттуу чөптөр.',
+                    ru: 'Состав: свежая форель, авокадо, капуста, фиолетовый лук, лимон, ароматные травы.',
+                    en: 'Ingredients: fresh trout, avocado, cabbage, red onion, lemon, aromatic herbs.'
+                },
                 tags: ['👑'],
                 image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80'
             },
             {
-                id: 'salad-6',
-                category: 'salads',
-                name: 'Греческий салат',
-                weight: '260 г',
-                price: 580,
-                description: 'Состав: сыр фетакса, томаты, огурцы, маслины, микс салатов, оливковое масло.',
-                tags: ['🌿'],
-                image: 'https://images.unsplash.com/photo-1592417817098-8f3d691a4bf5?auto=format&fit=crop&w=600&q=80'
-            },
-
-            // Завтраки
-            {
                 id: 'bf-1',
                 category: 'breakfasts',
-                name: 'Овсяная каша на кокосовом молоке',
+                names: { ky: 'Кокос сүтүндөгү сулу боткосу', ru: 'Овсяная каша на кокосовом молоке', en: 'Oatmeal on Coconut Milk' },
                 weight: '280 г',
                 price: 290,
-                description: 'Состав: овсяные хлопья, кокосовое молоко, бананы, смородина, фисташки, мятный сироп.',
+                descriptions: {
+                    ky: 'Курамы: сулу үлпектери, кокос сүтү, банан, карагат, фисташка, жалбыз сиропу.',
+                    ru: 'Состав: овсяные хлопья, кокосовое молоко, банан, смородина, фисташки, мятный сироп.',
+                    en: 'Ingredients: oatmeal flakes, coconut milk, banana, currant, pistachio, mint syrup.'
+                },
                 tags: ['🌿', '🥛'],
                 image: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=600&q=80'
             },
             {
                 id: 'bf-2',
                 category: 'breakfasts',
-                name: 'Шпинатные блины со сметаной',
+                names: { ky: 'Шпинат куймактары сметана менен', ru: 'Шпинатные блинчики со сметаной', en: 'Spinach Pancakes with Sour Cream' },
                 weight: '250 г',
                 price: 250,
-                description: 'Состав: овсяная мука, рисовая мука, яйца, молоко, шпинат, сметана.',
+                descriptions: {
+                    ky: 'Курамы: сулу уну, күрүч уну, жумуртка, сүт, шпинат, каймак.',
+                    ru: 'Состав: овсяная мука, рисовая мука, яйца, молоко, шпинат, сметана.',
+                    en: 'Ingredients: oatmeal, rice flour, eggs, milk, spinach, sour cream.'
+                },
                 tags: ['🌿'],
                 image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80'
             },
             {
                 id: 'bf-3',
                 category: 'breakfasts',
-                name: 'Деревенский завтрак',
+                names: { ky: 'Үй шартындагы эртең мененки тамак', ru: 'Домашний завтрак', en: 'Home-style Breakfast' },
                 weight: '340 г',
                 price: 370,
-                description: 'Состав: яйца, говяжьи колбаски, картофель, томаты, болгарский перец, руккола.',
+                descriptions: {
+                    ky: 'Курамы: жумуртка, уй этинен жасалган колбасалар, картошка, помидор, болгар калемпири.',
+                    ru: 'Состав: яйца, говяжьи колбаски, картофель, помидоры, болгарский перец.',
+                    en: 'Ingredients: eggs, beef sausages, potatoes, tomatoes, bell pepper.'
+                },
                 tags: ['👑'],
                 image: 'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=600&q=80'
             },
-
-            // Супы
             {
                 id: 'soup-1',
                 category: 'soups',
-                name: 'Уха по-норвежски',
+                names: { ky: 'Норвегиялык балык шорпосу', ru: 'Норвежский рыбный суп', en: 'Norwegian Fish Soup' },
                 weight: '350 г',
                 price: 915,
-                description: 'Состав: форель, картофель, морковь, ароматный соуси, сливки, зелень.',
+                descriptions: {
+                    ky: 'Курамы: форель, картошка, сабиз, каймак, атайын жыпар жыттуу соус, көк чөптөр.',
+                    ru: 'Состав: форель, картофель, морковь, сливки, специальный ароматный соус, зелень.',
+                    en: 'Ingredients: trout, potatoes, carrots, cream, special aromatic sauce, greens.'
+                },
                 tags: ['👑'],
                 image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80'
             },
             {
                 id: 'soup-2',
                 category: 'soups',
-                name: 'Том Ям',
+                names: { ky: 'Том Ям шорпосу', ru: 'Суп Том Ям', en: 'Tom Yum Soup' },
                 weight: '350 г',
                 price: 895,
-                description: 'Состав: тигровые креветки, рис, кокосовое молоко, лемонграсс, паста том ям, шампиньоны, лайм.',
+                descriptions: {
+                    ky: 'Курамы: тигр креветкалары, күрүч, кокос сүтү, лемонграсс, том ям пастасы, козу карын, лайм.',
+                    ru: 'Состав: тигровые креветки, рис, кокосовое молоко, лемонграсс, паста том ям, грибы, лайм.',
+                    en: 'Ingredients: tiger prawns, rice, coconut milk, lemongrass, tom yum paste, mushrooms, lime.'
+                },
                 tags: ['🌶️', '👑'],
                 image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80'
             },
             {
-                id: 'soup-3',
-                category: 'soups',
-                name: 'Грибной суп-крем',
-                weight: '300 г',
-                price: 450,
-                description: 'Состав: шампиньоны, вешенки, морковь, репчатый лук, сливки.',
-                tags: ['🌿'],
-                image: 'https://images.unsplash.com/photo-1603105037880-880cd4edfb6d?auto=format&fit=crop&w=600&q=80'
-            },
-
-            // Горячие блюда
-            {
                 id: 'hot-1',
                 category: 'hot',
-                name: 'Стейк Нью-Йорк',
+                names: { ky: 'Нью-Йорк Стейки', ru: 'Стейк Нью-Йорк', en: 'New York Steak' },
                 weight: '350 г',
                 price: 1995,
-                description: 'Состав: стейк рибай-нью-йорк, гриль, кукуруза, томаты черри, салат, ореховый соус.',
+                descriptions: {
+                    ky: 'Курамы: рибай-нью-йорк стейки, гриль жүгөрүсү, черри помидорлору, жаңгак соусу.',
+                    ru: 'Состав: стейк рибай-нью-йорк, кукуруза на гриле, помидоры черри, ореховый соус.',
+                    en: 'Ingredients: ribeye-new york steak, grilled corn, cherry tomatoes, nut sauce.'
+                },
                 tags: ['👑'],
                 image: 'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80'
             },
             {
                 id: 'hot-2',
                 category: 'hot',
-                name: 'Креветки в чесночном соусе',
+                names: { ky: 'Сарымсак соусундагы креветкалар', ru: 'Креветки в чесночном соусе', en: 'Shrimp in Garlic Sauce' },
                 weight: '280 г',
                 price: 1150,
-                description: 'Состав: тигровые креветки, лимон, чеснок, зелень.',
+                descriptions: {
+                    ky: 'Курамы: тандалма тигр креветкалары, лимон, сарымсак, жаңы көк чөптөр.',
+                    ru: 'Состав: отборные тигровые креветки, лимон, чеснок, свежая зелень.',
+                    en: 'Ingredients: selected tiger prawns, lemon, garlic, fresh greens.'
+                },
                 tags: ['👑'],
                 image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80'
             },
             {
-                id: 'hot-3',
-                category: 'hot',
-                name: 'Утка с овощами шато',
-                weight: '320 г',
-                price: 990,
-                description: 'Состав: утиная грудка, спаржа, картофель, кабачок, морковь, ягодный соус.',
-                tags: ['👑'],
-                image: 'https://images.unsplash.com/photo-1514944298352-f4d732115f08?auto=format&fit=crop&w=600&q=80'
-            },
-
-            // Пицца
-            {
                 id: 'pizza-1',
                 category: 'pizza',
-                name: 'Пепперони (итальянская)',
+                names: { ky: 'Пепперони пиццасы (италиялык)', ru: 'Пицца Пепперони (итальянская)', en: 'Pepperoni Pizza (Italian)' },
                 weight: '500 г',
                 price: 750,
-                description: 'Состав: колбаса пепперони, сыр моцарелла, томатный соус на тонком тесте.',
+                descriptions: {
+                    ky: 'Курамы: пепперони колбасасы, моцарелла сыры, ичке камырдагы томат соусу.',
+                    ru: 'Состав: колбаса пепперони, сыр моцарелла, томатный соус на тонком тесте.',
+                    en: 'Ingredients: pepperoni sausage, mozzarella cheese, tomato sauce on thin dough.'
+                },
                 tags: ['👑'],
                 image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=600&q=80'
             },
             {
                 id: 'pizza-2',
                 category: 'pizza',
-                name: '4 сыра',
+                names: { ky: 'Төрт сыр пиццасы', ru: 'Пицца Четыре сыра', en: 'Four Cheese Pizza' },
                 weight: '480 г',
                 price: 810,
-                description: 'Состав: сыр моцарелла, дор блю, чеддер, пармезан, сливочный соус.',
+                descriptions: {
+                    ky: 'Курамы: моцарелла, дор блю, чеддер, пармезан сырлары жана каймак соусу.',
+                    ru: 'Состав: сыры моцарелла, дор блю, чеддер, пармезан и сливочный соус.',
+                    en: 'Ingredients: mozzarella, dor blue, cheddar, parmesan cheeses and cream sauce.'
+                },
                 tags: ['🌿'],
                 image: 'https://images.unsplash.com/photo-1573821663912-569905455b1c?auto=format&fit=crop&w=600&q=80'
             },
             {
-                id: 'pizza-3',
-                category: 'pizza',
-                name: 'Мексика',
-                weight: '520 г',
-                price: 820,
-                description: 'Состав: куриная грудка, сыр моцарелла, фета, болгарский перец, халапеньо, красный лук.',
-                tags: ['🌶️'],
-                image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80'
-            },
-
-            // Роллы / Бутерброды
-            {
                 id: 'roll-1',
                 category: 'rolls',
-                name: 'Роллы Цезарь с курицей',
+                names: { ky: 'Тоок эти кошулган Цезарь роллу', ru: 'Ролл Цезарь с курицей', en: 'Chicken Caesar Roll' },
                 weight: '290 г',
                 price: 390,
-                description: 'Состав: куриная грудка, томаты, салат айсберг, соус цезарь, в лаваше.',
+                descriptions: {
+                    ky: 'Курамы: тоок филеси, помидор, айсберг салаты, цезарь соусу, лаваш.',
+                    ru: 'Состав: куриное филе, помидоры, салат айсберг, соус цезарь, лаваш.',
+                    en: 'Ingredients: chicken fillet, tomatoes, iceberg lettuce, caesar sauce, lavash.'
+                },
                 tags: ['👑'],
                 image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80'
             },
             {
                 id: 'roll-2',
                 category: 'rolls',
-                name: 'Багет на закваске с семгой',
-                weight: '270 г',
-                price: 695,
-                description: 'Состав: малосольная семга, томаты, салат айсберг, соус цезарь.',
-                tags: ['👑'],
-                image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80'
-            },
-            {
-                id: 'roll-3',
-                category: 'rolls',
-                name: 'Круассан с семгой и авокадо',
+                names: { ky: 'Лосось жана авокадо кошулган круассан', ru: 'Круассан с лососем и авокадо', en: 'Croissant with Salmon and Avocado' },
                 weight: '230 г',
                 price: 633,
-                description: 'Состав: малосольная семга, авокадо, помидор, листья салата, творожный соус.',
+                descriptions: {
+                    ky: 'Курамы: туздалган лосось, авокадо, помидор, салат жалбырактары, каймак сыры.',
+                    ru: 'Состав: слабосоленый лосось, авокадо, помидоры, салатные листья, сливочный сыр.',
+                    en: 'Ingredients: lightly salted salmon, avocado, tomatoes, lettuce leaves, cream cheese.'
+                },
                 tags: ['👑'],
                 image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80'
             }
         ];
 
-        // Breakfast Constructor Options
         const constructorData = {
             bases: [
-                { id: 'b1', name: '2 яйца (пашот / глазунья / скрамбл / омлет)', price: 95, type: 'radio' },
-                { id: 'b2', name: 'Дополнительное яйцо', price: 55, type: 'radio' }
+                { id: 'b1', names: { ky: '2 жумуртка (пашот / глазунья / скрамбл / омлет)', ru: '2 яйца (пашот / глазунья / скрамбл / омлет)', en: '2 eggs (poached / fried / scrambled / omelette)' }, price: 95 },
+                { id: 'b2', names: { ky: 'Кошумча жумуртка', ru: 'Дополнительное яйцо', en: 'Additional egg' }, price: 55 }
             ],
             toppings: [
                 {
-                    category: 'Овощи',
+                    categoryName: { ky: 'Жашылчалар', ru: 'Овощи', en: 'Vegetables' },
                     items: [
-                        { id: 't1', name: 'Томаты черри', price: 85 },
-                        { id: 't2', name: 'Авокадо', price: 135 },
-                        { id: 't3', name: 'Оливки / маслины', price: 130 },
-                        { id: 't4', name: 'Огурец', price: 65 },
-                        { id: 't5', name: 'Халапеньо', price: 55 }
+                        { id: 't1', names: { ky: 'Черри помидорлору', ru: 'Помидоры черри', en: 'Cherry tomatoes' }, price: 85 },
+                        { id: 't2', names: { ky: 'Авокадо', ru: 'Авокадо', en: 'Avocado' }, price: 135 },
+                        { id: 't3', names: { ky: 'Зайтун / маслиналар', ru: 'Маслины / оливки', en: 'Olives' }, price: 130 },
+                        { id: 't4', names: { ky: 'Бадыраң', ru: 'Огурцы', en: 'Cucumbers' }, price: 65 }
                     ]
                 },
                 {
-                    category: 'Мясо и Рыба',
+                    categoryName: { ky: 'Эт жана Балык', ru: 'Мясо и Рыба', en: 'Meat & Fish' },
                     items: [
-                        { id: 't6', name: 'Малосольная семга', price: 230 },
-                        { id: 't7', name: 'Охотничьи колбаски', price: 130 }
+                        { id: 't6', names: { ky: 'Туздуу лосось балыгы', ru: 'Слабосоленый лосось', en: 'Salted salmon' }, price: 230 },
+                        { id: 't7', names: { ky: 'Кытырак колбасалар', ru: 'Хрустящие колбаски', en: 'Crispy sausages' }, price: 130 }
                     ]
                 },
                 {
-                    category: 'Сыр',
+                    categoryName: { ky: 'Сыр түрлөрү', ru: 'Сыры', en: 'Cheeses' },
                     items: [
-                        { id: 't8', name: 'Брынза', price: 80 },
-                        { id: 't9', name: 'Творожный сыр', price: 130 },
-                        { id: 't10', name: 'Тильзитский', price: 95 },
-                        { id: 't11', name: 'Сыр с плесенью', price: 170 },
-                        { id: 't12', name: 'Пармезан', price: 125 }
+                        { id: 't8', names: { ky: 'Брынза сыры', ru: 'Сыр брынза', en: 'Bryndza cheese' }, price: 80 },
+                        { id: 't9', names: { ky: 'Каймак сыры (творожный)', ru: 'Творожный сыр', en: 'Cream cheese' }, price: 130 },
+                        { id: 't10', names: { ky: 'Пармезан', ru: 'Пармезан', en: 'Parmesan' }, price: 125 }
                     ]
                 },
                 {
-                    category: 'Хлеб',
+                    categoryName: { ky: 'Нан', ru: 'Хлеб', en: 'Bread' },
                     items: [
-                        { id: 't13', name: 'Багет на закваске (1 шт)', price: 110 },
-                        { id: 't14', name: 'Тостерный хлеб (2 кус)', price: 90 },
-                        { id: 't15', name: 'Гриссини (2 шт)', price: 70 }
+                        { id: 't13', names: { ky: 'Үй багели (1 даана)', ru: 'Домашний бейгл (1 шт.)', en: 'Home bagel (1 pc.)' }, price: 110 },
+                        { id: 't14', names: { ky: 'Тостер наны (2 күкүм)', ru: 'Тостовый хлеб (2 ломтика)', en: 'Toast bread (2 slices)' }, price: 90 }
                     ]
                 }
             ]
         };
 
-        // Cart State
         let cart = [];
         let selectedConstructorBase = null;
-        let selectedConstructorToppings = {}; // id -> count/bool
+        let selectedConstructorToppings = {};
+        let currentActiveCategory = 'all';
 
-        // Initialize App on DOM Load
         document.addEventListener('DOMContentLoaded', () => {
             renderMenu('all');
             renderConstructor();
             updateCartUI();
         });
 
-        // Toggle Mobile Menu
         function toggleMobileMenu() {
-            const menu = document.getElementById('mobile-menu');
-            menu.classList.toggle('hidden');
+            document.getElementById('mobile-menu').classList.toggle('hidden');
         }
 
-        // Render Menu Catalog
         function renderMenu(category) {
+            currentActiveCategory = category;
             const grid = document.getElementById('dishes-grid');
             grid.innerHTML = '';
-
             const filtered = category === 'all' ? menuDishes : menuDishes.filter(d => d.category === category);
 
-            // Update active tab styles
             document.querySelectorAll('.category-tab').forEach(tab => {
-                tab.className = 'category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300';
+                tab.className = 'category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-darkblue-800 hover:bg-darkblue-700 text-gray-300 border border-roseflower-500/30';
             });
             const activeTab = document.getElementById(`tab-${category}`);
             if (activeTab) {
-                activeTab.className = 'category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cafe-gold text-white shadow-sm';
+                activeTab.className = 'category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-roseflower-600 text-white shadow-lg shadow-roseflower-600/30';
             }
 
             filtered.forEach(dish => {
                 const card = document.createElement('div');
-                card.className = 'bg-cream-50 rounded-3xl border border-cream-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300 flex flex-col';
+                card.className = 'bg-darkblue-800/90 rounded-3xl border border-roseflower-500/30 overflow-hidden shadow-xl hover:border-roseflower-400 transition duration-300 flex flex-col group';
+                const name = dish.names[currentLang] || dish.names['ky'];
+                const desc = dish.descriptions[currentLang] || dish.descriptions['ky'];
+                const addText = currentLang === 'ru' ? 'Добавить' : currentLang === 'en' ? 'Add' : 'Кошуу';
+
                 card.innerHTML = `
-                    <div class="relative h-52 overflow-hidden bg-cream-200">
-                        <img src="${dish.image}" alt="${dish.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/f7f2e8/2c2621?text=Michel'">
-                        <div class="absolute top-3 right-3 flex space-x-1.5 bg-cream-50/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs shadow-sm">
+                    <div class="relative h-52 overflow-hidden bg-darkblue-900">
+                        <img src="${dish.image}" alt="${name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/0f172a/f8fafc?text=Michel'">
+                        <div class="absolute top-3 right-3 flex space-x-1.5 bg-darkblue-900/80 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs shadow-md border border-roseflower-500/30">
                             ${dish.tags.map(t => `<span>${t}</span>`).join('')}
                         </div>
                     </div>
                     <div class="p-6 flex flex-col flex-grow justify-between">
                         <div>
                             <div class="flex items-start justify-between gap-2 mb-2">
-                                <h3 class="font-serif font-bold text-lg text-cafe-dark">${dish.name}</h3>
-                                <span class="text-xs font-medium text-cafe-muted bg-cream-100 px-2.5 py-1 rounded-full whitespace-nowrap">${dish.weight}</span>
+                                <h3 class="font-serif font-bold text-lg text-white">${name}</h3>
+                                <span class="text-xs font-medium text-gray-400 bg-darkblue-900 px-2.5 py-1 rounded-full whitespace-nowrap border border-roseflower-500/20">${dish.weight}</span>
                             </div>
-                            <p class="text-xs text-cafe-muted mb-4 line-clamp-2 leading-relaxed">${dish.description}</p>
+                            <p class="text-xs text-gray-300 mb-4 line-clamp-2 leading-relaxed">${desc}</p>
                         </div>
-                        <div class="flex items-center justify-between pt-4 border-t border-cream-200">
-                            <span class="text-xl font-serif font-bold text-cafe-gold">${dish.price} сом</span>
-                            <button onclick="addToCart('${dish.id}', 'dish')" class="bg-cafe-dark hover:bg-cafe-gold text-white px-4 py-2.5 rounded-xl text-xs font-medium transition flex items-center space-x-1.5 shadow-sm">
-                                <i class="fa-solid fa-plus"></i>
-                                <span>В корзину</span>
+                        <div class="flex items-center justify-between pt-4 border-t border-roseflower-500/20">
+                            <span class="text-xl font-serif font-bold text-roseflower-400">${dish.price} сом</span>
+                            <button onclick="addToCart('${dish.id}')" class="bg-darkblue-900 hover:bg-roseflower-600 text-white border border-roseflower-500/40 hover:border-roseflower-600 px-4 py-2.5 rounded-xl text-xs font-medium transition flex items-center space-x-1.5 shadow-md">
+                                <i class="fa-solid fa-plus text-roseflower-400 group-hover:text-white"></i>
+                                <span>${addText}</span>
                             </button>
                         </div>
                     </div>
@@ -707,23 +920,21 @@
             });
         }
 
-        function filterCategory(cat) {
-            renderMenu(cat);
-        }
+        function filterCategory(cat) { renderMenu(cat); }
 
-        // Render Breakfast Constructor
         function renderConstructor() {
             const basesContainer = document.getElementById('constructor-bases');
             basesContainer.innerHTML = '';
             constructorData.bases.forEach(base => {
+                const bName = base.names[currentLang] || base.names['ky'];
                 const div = document.createElement('label');
-                div.className = 'flex items-center justify-between p-3.5 rounded-xl border border-cream-200 bg-cream-50 hover:bg-cream-100 cursor-pointer transition';
+                div.className = 'flex items-center justify-between p-3.5 rounded-xl border border-roseflower-500/20 bg-darkblue-900 hover:border-roseflower-400 cursor-pointer transition';
                 div.innerHTML = `
                     <div class="flex items-center space-x-3">
-                        <input type="radio" name="constructor-base" value="${base.id}" onchange="selectBase('${base.id}')" class="text-cafe-gold focus:ring-cafe-gold">
-                        <span class="text-sm font-medium text-cafe-dark">${base.name}</span>
+                        <input type="radio" name="constructor-base" value="${base.id}" ${selectedConstructorBase && selectedConstructorBase.id === base.id ? 'checked' : ''} onchange="selectBase('${base.id}')" class="text-roseflower-600 focus:ring-roseflower-500 bg-darkblue-900 border-roseflower-500/40">
+                        <span class="text-sm font-medium text-gray-200">${bName}</span>
                     </div>
-                    <span class="text-sm font-serif font-semibold text-cafe-gold">${base.price} сом</span>
+                    <span class="text-sm font-serif font-semibold text-roseflower-400">${base.price} сом</span>
                 `;
                 basesContainer.appendChild(div);
             });
@@ -731,20 +942,25 @@
             const groupsContainer = document.getElementById('constructor-toppings-groups');
             groupsContainer.innerHTML = '';
             constructorData.toppings.forEach(group => {
+                const gName = group.categoryName[currentLang] || group.categoryName['ky'];
                 const groupDiv = document.createElement('div');
                 groupDiv.className = 'mb-4';
                 groupDiv.innerHTML = `
-                    <h4 class="text-xs font-semibold uppercase tracking-wider text-cafe-muted mb-2">${group.category}</h4>
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-roseflower-300 mb-2">${gName}</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                        ${group.items.map(item => `
-                            <div class="flex items-center justify-between p-2.5 rounded-xl border border-cream-200 bg-cream-50 hover:bg-cream-100 cursor-pointer transition" onclick="toggleConstructorTopping('${item.id}')">
-                                <div class="flex items-center space-x-2.5">
-                                    <input type="checkbox" id="top-${item.id}" ${selectedConstructorToppings[item.id] ? 'checked' : ''} onchange="toggleConstructorTopping('${item.id}')" class="rounded text-cafe-gold focus:ring-cafe-gold">
-                                    <span class="text-xs font-medium text-cafe-dark">${item.name}</span>
+                        ${group.items.map(item => {
+                            const iName = item.names[currentLang] || item.names['ky'];
+                            const isChecked = selectedConstructorToppings[item.id] ? 'checked' : '';
+                            return `
+                                <div class="flex items-center justify-between p-2.5 rounded-xl border border-roseflower-500/20 bg-darkblue-900 hover:border-roseflower-400 cursor-pointer transition" onclick="toggleConstructorTopping('${item.id}')">
+                                    <div class="flex items-center space-x-2.5">
+                                        <input type="checkbox" id="top-${item.id}" ${isChecked} onchange="toggleConstructorTopping('${item.id}')" class="rounded text-roseflower-600 focus:ring-roseflower-500 bg-darkblue-900 border-roseflower-500/40">
+                                        <span class="text-xs font-medium text-gray-200">${iName}</span>
+                                    </div>
+                                    <span class="text-xs font-semibold text-roseflower-400">+${item.price} с</span>
                                 </div>
-                                <span class="text-xs font-semibold text-cafe-gold">+${item.price} с</span>
-                            </div>
-                        `).join('')}
+                            `;
+                        }).join('')}
                     </div>
                 `;
                 groupsContainer.appendChild(groupDiv);
@@ -757,14 +973,10 @@
         }
 
         function toggleConstructorTopping(topId) {
-            // Find in toppings
             let found = null;
             constructorData.toppings.forEach(g => {
-                g.items.forEach(i => {
-                    if (i.id === topId) found = i;
-                });
+                g.items.forEach(i => { if (i.id === topId) found = i; });
             });
-
             if (!found) return;
 
             if (selectedConstructorToppings[topId]) {
@@ -773,10 +985,8 @@
                 selectedConstructorToppings[topId] = found;
             }
 
-            // Sync checkbox
             const cb = document.getElementById(`top-${topId}`);
             if (cb) cb.checked = !!selectedConstructorToppings[topId];
-
             updateConstructorSummary();
         }
 
@@ -788,53 +998,54 @@
             listContainer.innerHTML = '';
             let total = 0;
 
+            const emptyText = translations[currentLang]['constr-empty'];
             if (!selectedConstructorBase) {
-                listContainer.innerHTML = '<p class="italic text-gray-400">Выберите основу для начала...</p>';
+                listContainer.innerHTML = `<p class="italic text-gray-500">${emptyText}</p>`;
                 totalEl.textContent = '0 сом';
                 btn.disabled = true;
-                btn.className = 'w-full bg-cafe-gold/50 cursor-not-allowed text-white py-3.5 rounded-xl font-medium transition shadow-sm';
+                btn.className = 'w-full bg-gray-700 cursor-not-allowed text-gray-400 py-3.5 rounded-xl font-medium transition shadow-md';
                 return;
             }
 
             total += selectedConstructorBase.price;
-            let itemsHtml = `<div class="flex justify-between text-xs"><span class="font-medium text-cafe-dark">${selectedConstructorBase.name}</span><span>${selectedConstructorBase.price} с</span></div>`;
+            const bName = selectedConstructorBase.names[currentLang] || selectedConstructorBase.names['ky'];
+            let itemsHtml = `<div class="flex justify-between text-xs"><span class="font-medium text-white">${bName}</span><span>${selectedConstructorBase.price} с</span></div>`;
 
             Object.values(selectedConstructorToppings).forEach(top => {
                 total += top.price;
-                itemsHtml += `<div class="flex justify-between text-xs text-cafe-muted"><span class="pl-2">+ ${top.name}</span><span>${top.price} с</span></div>`;
+                const tName = top.names[currentLang] || top.names['ky'];
+                itemsHtml += `<div class="flex justify-between text-xs text-gray-400"><span class="pl-2">+ ${tName}</span><span>${top.price} с</span></div>`;
             });
 
             listContainer.innerHTML = itemsHtml;
             totalEl.textContent = `${total} сом`;
             btn.disabled = false;
-            btn.className = 'w-full bg-cafe-gold hover:bg-cafe-goldHover text-white py-3.5 rounded-xl font-medium transition shadow-sm cursor-pointer';
+            btn.className = 'w-full bg-roseflower-600 hover:bg-roseflower-700 text-white py-3.5 rounded-xl font-medium transition shadow-lg shadow-roseflower-600/30 cursor-pointer';
         }
 
         function addConstructorToCart() {
             if (!selectedConstructorBase) return;
-
-            let descParts = [];
             let toppingsList = Object.values(selectedConstructorToppings);
-            toppingsList.forEach(t => descParts.push(t.name));
-
+            let descParts = toppingsList.map(t => t.names[currentLang] || t.names['ky']);
             let calcPrice = selectedConstructorBase.price;
             toppingsList.forEach(t => calcPrice += t.price);
 
-            const customBreakfast = {
+            const prefix = currentLang === 'ru' ? 'Завтрак: ' : currentLang === 'en' ? 'Breakfast: ' : 'Эртең мененки тамак: ';
+            const topText = currentLang === 'ru' ? 'Добавки: ' : currentLang === 'en' ? 'Toppings: ' : 'Кошумчалар: ';
+            const noTopText = currentLang === 'ru' ? 'Без добавок' : currentLang === 'en' ? 'No toppings' : 'Кошумчасыз';
+
+            cart.push({
                 cartId: 'cb-' + Date.now(),
-                name: 'Конструктор завтрака: ' + selectedConstructorBase.name,
-                description: descParts.length ? 'Добавки: ' + descParts.join(', ') : 'Без добавок',
+                name: prefix + (selectedConstructorBase.names[currentLang] || selectedConstructorBase.names['ky']),
+                description: descParts.length ? topText + descParts.join(', ') : noTopText,
                 price: calcPrice,
                 weight: '350 г',
                 quantity: 1,
                 image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80'
-            };
+            });
 
-            cart.push(customBreakfast);
             updateCartUI();
             openCart();
-
-            // Reset constructor
             selectedConstructorBase = null;
             selectedConstructorToppings = {};
             document.querySelectorAll('input[name="constructor-base"]').forEach(el => el.checked = false);
@@ -842,38 +1053,42 @@
             updateConstructorSummary();
         }
 
-        // Cart Management Functions
-        function addToCart(id, type) {
+        function addToCart(id) {
             const dish = menuDishes.find(d => d.id === id);
             if (!dish) return;
-
+            const translatedName = dish.names[currentLang] || dish.names['ky'];
+            const translatedDesc = dish.descriptions[currentLang] || dish.descriptions['ky'];
+            
             const existing = cart.find(item => item.id === id && !item.cartId);
-            if (existing) {
-                existing.quantity += 1;
-            } else {
-                cart.push({ ...dish, quantity: 1 });
+            if (existing) { 
+                existing.quantity += 1; 
+            } else { 
+                cart.push({ 
+                    id: dish.id,
+                    name: translatedName,
+                    description: translatedDesc,
+                    price: dish.price,
+                    weight: dish.weight,
+                    image: dish.image,
+                    quantity: 1 
+                }); 
             }
-
             updateCartUI();
             openCart();
         }
 
-        function updateQuantity(cartIdOrIndex, change, isCustom) {
+        function updateQuantity(identifier, change, isCustom) {
             if (isCustom) {
-                const item = cart.find(i => i.cartId === cartIdOrIndex);
+                const item = cart.find(i => i.cartId === identifier);
                 if (item) {
                     item.quantity += change;
-                    if (item.quantity <= 0) {
-                        cart = cart.filter(i => i.cartId !== cartIdOrIndex);
-                    }
+                    if (item.quantity <= 0) cart = cart.filter(i => i.cartId !== identifier);
                 }
             } else {
-                const item = cart[cartIdOrIndex];
+                const item = cart[identifier];
                 if (item) {
                     item.quantity += change;
-                    if (item.quantity <= 0) {
-                        cart.splice(cartIdOrIndex, 1);
-                    }
+                    if (item.quantity <= 0) cart.splice(identifier, 1);
                 }
             }
             updateCartUI();
@@ -893,16 +1108,12 @@
             } else {
                 badge.classList.add('hidden');
             }
-
             totalEl.textContent = `${totalPrice} сом`;
 
+            const emptyCartText = currentLang === 'ru' ? 'Ваша корзина пуста' : currentLang === 'en' ? 'Your cart is empty' : 'Себетиңиз бош';
+
             if (cart.length === 0) {
-                container.innerHTML = `
-                    <div class="text-center py-16">
-                        <i class="fa-solid fa-basket-shopping text-4xl text-cream-300 mb-3"></i>
-                        <p class="text-cafe-muted text-sm">Ваша корзина пуста</p>
-                    </div>
-                `;
+                container.innerHTML = `<div class="text-center py-16"><i class="fa-solid fa-basket-shopping text-4xl text-roseflower-500/40 mb-3"></i><p class="text-gray-400 text-sm">${emptyCartText}</p></div>`;
                 return;
             }
 
@@ -910,41 +1121,34 @@
             cart.forEach((item, index) => {
                 const isCustom = !!item.cartId;
                 const identifier = isCustom ? item.cartId : index;
-
                 const div = document.createElement('div');
-                div.className = 'flex items-center justify-between bg-cream-50 p-4 rounded-2xl border border-cream-200';
+                div.className = 'flex items-center justify-between bg-darkblue-900 p-4 rounded-2xl border border-roseflower-500/20';
                 div.innerHTML = `
                     <div class="flex items-center space-x-3 overflow-hidden">
-                        <img src="${item.image}" alt="" class="w-14 h-14 object-cover rounded-xl shrink-0" onerror="this.src='https://placehold.co/100x100/f7f2e8/2c2621?text=Dish'">
+                        <img src="${item.image}" alt="" class="w-14 h-14 object-cover rounded-xl shrink-0" onerror="this.src='https://placehold.co/100x100/0f172a/f8fafc?text=Dish'">
                         <div class="truncate">
-                            <h4 class="text-sm font-serif font-bold text-cafe-dark truncate">${item.name}</h4>
-                            <p class="text-xs text-cafe-muted truncate">${item.description || item.weight}</p>
-                            <span class="text-xs font-semibold text-cafe-gold mt-1 block">${item.price} сом</span>
+                            <h4 class="text-sm font-serif font-bold text-white truncate">${item.name}</h4>
+                            <p class="text-xs text-gray-400 truncate">${item.description || item.weight}</p>
+                            <span class="text-xs font-semibold text-roseflower-400 mt-1 block">${item.price} сом</span>
                         </div>
                     </div>
                     <div class="flex items-center space-x-2 shrink-0">
-                        <button onclick="updateQuantity('${identifier}', -1, ${isCustom})" class="w-7 h-7 bg-cream-200 hover:bg-cream-300 rounded-lg flex items-center justify-center text-cafe-dark transition text-xs font-bold">-</button>
-                        <span class="text-xs font-bold w-5 text-center">${item.quantity}</span>
-                        <button onclick="updateQuantity('${identifier}', 1, ${isCustom})" class="w-7 h-7 bg-cream-200 hover:bg-cream-300 rounded-lg flex items-center justify-center text-cafe-dark transition text-xs font-bold">+</button>
+                        <button onclick="updateQuantity('${identifier}', -1, ${isCustom})" class="w-7 h-7 bg-darkblue-700 hover:bg-roseflower-600 rounded-lg flex items-center justify-center text-gray-200 transition text-xs font-bold">-</button>
+                        <span class="text-xs font-bold w-5 text-center text-white">${item.quantity}</span>
+                        <button onclick="updateQuantity('${identifier}', 1, ${isCustom})" class="w-7 h-7 bg-darkblue-700 hover:bg-roseflower-600 rounded-lg flex items-center justify-center text-gray-200 transition text-xs font-bold">+</button>
                     </div>
                 `;
                 container.appendChild(div);
             });
         }
 
-        function openCart() {
-            document.getElementById('cart-modal').classList.remove('hidden');
-        }
-
-        function closeCart() {
-            document.getElementById('cart-modal').classList.add('hidden');
-        }
+        function openCart() { document.getElementById('cart-modal').classList.remove('hidden'); }
+        function closeCart() { document.getElementById('cart-modal').classList.add('hidden'); }
 
         function toggleDeliveryAddress() {
             const type = document.getElementById('order-type').value;
             const addressWrapper = document.getElementById('address-field-wrapper');
             const addressInput = document.getElementById('order-address');
-
             if (type === 'Самовывоз') {
                 addressWrapper.style.display = 'none';
                 addressInput.required = false;
@@ -954,10 +1158,8 @@
             }
         }
 
-        // Submit Order to WhatsApp without errors
         function submitOrderToWhatsApp(event) {
             event.preventDefault();
-
             if (cart.length === 0) return;
 
             const name = document.getElementById('order-name').value.trim();
@@ -966,50 +1168,32 @@
             const branch = document.getElementById('order-branch').value;
             const address = document.getElementById('order-address').value.trim();
             const comment = document.getElementById('order-comment').value.trim();
-
             const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
 
-            let message = `🍽 *НОВЫЙ ЗАКАЗ В КАФЕ «МИШЕЛЬ»*\n\n`;
-            message += `👤 *Имя:* ${name}\n`;
+            let message = `🌸 *«МИШЕЛЬ» КАФЕСИНЕН ЖАҢЫ БУЮРТМА* 🌸\n\n`;
+            message += `👤 *Аты / Name:* ${name}\n`;
             message += `📞 *Телефон:* ${phone}\n`;
-            message += `📦 *Способ получения:* ${orderType}\n`;
+            message += `📦 *Ыкма / Method:* ${orderType}\n`;
             message += `🏢 *${branch}*\n`;
-            if (orderType === 'Доставка') {
-                message += `📍 *Адрес:* ${address}\n`;
-            }
-            if (comment) {
-                message += `💬 *Комментарий:* ${comment}\n`;
-            }
-            message += `\n🛒 *СОСТАВ ЗАКАЗА:*\n`;
+            if (orderType === 'Доставка') { message += `📍 *Дарек / Address:* ${address}\n`; }
+            if (comment) { message += `💬 *Каалоо / Comment:* ${comment}\n`; }
+            message += `\n🛒 *БУЮРТМА / ORDER:*\n`;
 
             cart.forEach((item, idx) => {
-                message += `${idx + 1}. ${item.name} (${item.quantity} шт.) — ${item.price * item.quantity} сом\n`;
+                message += `${idx + 1}. ${item.name} (${item.quantity} да.) — ${item.price * item.quantity} сом\n`;
             });
 
-            message += `\n💰 *ИТОГО К ОПЛАТЕ:* *${totalPrice} сом*\n\n`;
-            message += `Пожалуйста, подтвердите заказ. Спасибо!`;
+            message += `\n💰 *ЖАЛПЫ / TOTAL:* *${totalPrice} сом*\n`;
 
-            // WhatsApp Business / Personal target phone number example
-            const whatsappNumber = '+996500000000'; // Example format
-            const encodedMessage = encodeURIComponent(message);
-            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-            // Open WhatsApp
-            window.open(whatsappUrl, '_blank');
-
-            // Show confirmation modal
+            window.open(`https://wa.me/+996500000000?text=${encodeURIComponent(message)}`, '_blank');
             document.getElementById('notification-modal').classList.remove('hidden');
             closeCart();
-
-            // Clear cart after successful order creation
             cart = [];
             updateCartUI();
             document.getElementById('order-form').reset();
         }
 
-        function closeNotification() {
-            document.getElementById('notification-modal').classList.add('hidden');
-        }
+        function closeNotification() { document.getElementById('notification-modal').classList.add('hidden'); }
     </script>
 </body>
 </html>

@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мишель — Изысканное Кафе и Кофейня</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        cream: {
+                            50: '#fdfbf7',
+                            100: '#f7f2e8',
+                            200: '#ede4d3',
+                            300: '#dfd2bc',
+                        },
+                        cafe: {
+                            dark: '#2c2621',
+                            muted: '#6b5e53',
+                            gold: '#b89768',
+                            goldHover: '#a38255',
+                            accent: '#8c6d48'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['Playfair Display', 'Georgia', 'serif'],
+                        sans: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Playfair Display & Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- FontAwesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fdfbf7;
+            color: #2c2621;
+        }
+        h1, h2, h3, h4, .font-serif {
+            font-family: 'Playfair Display', Georgia, serif;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f7f2e8;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #dfd2bc;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #b89768;
+        }
+    </style>
+</head>
+<body class="bg-cream-50 text-cafe-dark antialiased selection:bg-cream-200 selection:text-cafe-dark flex flex-col min-h-screen">
+
+    <!-- Header -->
+    <header class="sticky top-0 z-40 bg-cream-50/90 backdrop-blur-md border-b border-cream-200 transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-12 h-12 rounded-full border border-cafe-gold/50 flex items-center justify-center bg-cream-100 group-hover:bg-cream-200 transition">
+                    <i class="fa-solid fa-mug-hot text-cafe-gold text-lg"></i>
+                </div>
+                <div>
+                    <span class="text-2xl font-serif font-bold tracking-wider text-cafe-dark">МИШЕЛЬ</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-cafe-muted">кафе & кофейня</span>
+                </div>
+            </a>
+
+            <!-- Desktop Navigation Links -->
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium tracking-wide">
+                <a href="#menu-section" class="text-cafe-dark hover:text-cafe-gold transition">Меню</a>
+                <a href="#constructor-section" class="text-cafe-dark hover:text-cafe-gold transition">Конструктор завтрака</a>
+                <a href="#about-section" class="text-cafe-dark hover:text-cafe-gold transition">О нас</a>
+            </nav>
+
+            <!-- Actions (Cart & Mobile menu toggle) -->
+            <div class="flex items-center space-x-4">
+                <button onclick="openCart()" class="relative bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300 p-3 rounded-full transition flex items-center justify-center shadow-sm">
+                    <i class="fa-solid fa-bag-shopping text-lg text-cafe-gold"></i>
+                    <span id="cart-badge" class="absolute -top-1 -right-1 bg-cafe-gold text-white text-xs w-5 h-5 rounded-full flex items-center justify-center font-bold hidden">0</span>
+                </button>
+                <button onclick="toggleMobileMenu()" class="md:hidden text-cafe-dark p-2 text-xl">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cream-100 border-b border-cream-200 px-6 py-4 space-y-3">
+            <a href="#menu-section" onclick="toggleMobileMenu()" class="block text-cafe-dark font-medium py-1">Меню</a>
+            <a href="#constructor-section" onclick="toggleMobileMenu()" class="block text-cafe-dark font-medium py-1">Конструктор завтрака</a>
+            <a href="#about-section" onclick="toggleMobileMenu()" class="block text-cafe-dark font-medium py-1">О нас</a>
+        </div>
+    </header>
+
+    <!-- Hero Banner -->
+    <section class="relative bg-cream-100 py-16 lg:py-24 border-b border-cream-200 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 bg-[radial-gradient(#b89768_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <span class="inline-block text-xs uppercase tracking-[0.25em] text-cafe-gold font-semibold mb-3 bg-cream-200/60 px-4 py-1.5 rounded-full">Авторская кухня & Атмосфера</span>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-serif font-bold text-cafe-dark mb-6 tracking-tight">
+                Не еда, это стиль
+            </h1>
+            <p class="max-w-2xl mx-auto text-cafe-muted text-base sm:text-lg mb-8 leading-relaxed font-light">
+                Мишель — это больше чем кофейня. Это воплощение добра, любви и заботы о природе и людях. Изысканные рецепты из Средиземноморья и душевные завтраки весь день.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#menu-section" class="bg-cafe-gold hover:bg-cafe-goldHover text-white px-8 py-3.5 rounded-full font-medium transition shadow-sm tracking-wide">
+                    Смотреть меню
+                </a>
+                <a href="#constructor-section" class="bg-cream-50 hover:bg-cream-200 text-cafe-dark border border-cream-300 px-8 py-3.5 rounded-full font-medium transition tracking-wide">
+                    Собрать завтрак
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 w-full">
+
+        <!-- Menu Section -->
+        <section id="menu-section" class="mb-16">
+            <div class="text-center mb-10">
+                <span class="text-xs uppercase tracking-widest text-cafe-gold font-semibold">Наши предложения</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-cafe-dark mt-1">Меню заведения</h2>
+                <div class="w-16 h-0.5 bg-cafe-gold mx-auto mt-3"></div>
+            </div>
+
+            <!-- Category Filter Tabs -->
+            <div class="flex overflow-x-auto pb-4 mb-8 space-x-3 justify-start sm:justify-center scrollbar-none">
+                <button onclick="filterCategory('all')" id="tab-all" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cafe-gold text-white shadow-sm">
+                    Все блюда
+                </button>
+                <button onclick="filterCategory('salads')" id="tab-salads" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
+                    Салаты
+                </button>
+                <button onclick="filterCategory('breakfasts')" id="tab-breakfasts" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
+                    Завтраки
+                </button>
+                <button onclick="filterCategory('soups')" id="tab-soups" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
+                    Супы
+                </button>
+                <button onclick="filterCategory('hot')" id="tab-hot" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
+                    Горячие блюда
+                </button>
+                <button onclick="filterCategory('pizza')" id="tab-pizza" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
+                    Пицца
+                </button>
+                <button onclick="filterCategory('rolls')" id="tab-rolls" class="category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300">
+                    Роллы / Бутерброды
+                </button>
+            </div>
+
+            <!-- Dishes Grid -->
+            <div id="dishes-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Dynamically populated via JavaScript -->
+            </div>
+        </section>
+
+        <!-- Breakfast Constructor Section -->
+        <section id="constructor-section" class="mb-20 bg-cream-100/70 border border-cream-200 rounded-3xl p-6 sm:p-10 shadow-sm">
+            <div class="text-center mb-8">
+                <span class="text-xs uppercase tracking-widest text-cafe-gold font-semibold">Соберите идеальное утро</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-cafe-dark mt-1">Конструктор завтрака</h2>
+                <p class="text-sm text-cafe-muted mt-2">Работает с 6:00 до 12:00. Выберите основу и дополните любимыми ингредиентами.</p>
+                <div class="w-16 h-0.5 bg-cafe-gold mx-auto mt-3"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Constructor Options Controls -->
+                <div class="lg:col-span-2 space-y-6">
+                    <!-- Base Selection -->
+                    <div class="bg-cream-50 p-5 rounded-2xl border border-cream-200">
+                        <h3 class="font-serif font-bold text-lg text-cafe-dark mb-3 flex items-center justify-between">
+                            <span>1. Выберите основу (обязательно)</span>
+                            <span class="text-xs font-sans text-cafe-gold uppercase bg-cream-100 px-2.5 py-1 rounded-md">База</span>
+                        </h3>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="constructor-bases">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Toppings Selection -->
+                    <div class="bg-cream-50 p-5 rounded-2xl border border-cream-200">
+                        <h3 class="font-serif font-bold text-lg text-cafe-dark mb-3">2. Дополнить начинкой по вкусу</h3>
+                        <div class="space-y-4" id="constructor-toppings-groups">
+                            <!-- Populated via JS -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Constructor Summary Card -->
+                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-300 flex flex-col justify-between h-fit sticky top-28 shadow-sm">
+                    <div>
+                        <h3 class="font-serif font-bold text-xl text-cafe-dark mb-4 border-b border-cream-200 pb-3">Ваш завтрак</h3>
+                        <div id="constructor-selected-list" class="space-y-2 mb-6 text-sm text-cafe-muted min-h-[120px]">
+                            <p class="italic text-gray-400">Выберите основу для начала...</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-cream-200 pt-4">
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="font-medium text-cafe-dark">Итоговая стоимость:</span>
+                            <span id="constructor-total" class="text-2xl font-serif font-bold text-cafe-gold">0 сом</span>
+                        </div>
+                        <button onclick="addConstructorToCart()" id="constructor-btn" disabled class="w-full bg-cafe-gold/50 cursor-not-allowed text-white py-3.5 rounded-xl font-medium transition shadow-sm">
+                            Добавить в корзину
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Us & Philosophy Section -->
+        <section id="about-section" class="mb-16 bg-cream-100/50 border border-cream-200 rounded-3xl p-8 sm:p-12">
+            <div class="max-w-3xl mx-auto text-center mb-10">
+                <span class="text-xs uppercase tracking-widest text-cafe-gold font-semibold">Философия заведения</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold text-cafe-dark mt-1">О нас</h2>
+                <p class="text-cafe-muted mt-4 text-base sm:text-lg leading-relaxed">
+                    Мишель — это больше чем кофейня или коммерческая организация. Это — олицетворение добра, любви и заботы о природе и людях. Следуя за своей мечтой, основательница кофейни Мишель решила создать мир, где люди чтят Её Величество «Матушку Землю» и не нарушают гармонию с природой.
+                </p>
+                <div class="w-16 h-0.5 bg-cafe-gold mx-auto mt-6"></div>
+            </div>
+
+            <!-- Eco & Spec Badges Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-8">
+                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
+                    <h3 class="font-serif font-bold text-lg text-cafe-dark mb-3 flex items-center">
+                        <i class="fa-solid fa-seedling text-cafe-gold mr-2.5"></i> Экологические принципы
+                    </h3>
+                    <ul class="space-y-2 text-sm text-cafe-muted">
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cafe-gold mt-1 mr-2 text-xs"></i> Отказ от одноразового пластика и пластиковых бутылок.</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cafe-gold mt-1 mr-2 text-xs"></i> Использование бесконтактного QR-меню и сортировка отходов.</li>
+                        <li class="flex items-start"><i class="fa-solid fa-check text-cafe-gold mt-1 mr-2 text-xs"></i> Ежегодная высадка деревьев в столице и энергосберегающие печи.</li>
+                    </ul>
+                </div>
+
+                <div class="bg-cream-50 p-6 rounded-2xl border border-cream-200">
+                    <h3 class="font-serif font-bold text-lg text-cafe-dark mb-3 flex items-center">
+                        <i class="fa-solid fa-heart text-cafe-gold mr-2.5"></i> Символы и рацион питания
+                    </h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-cafe-muted">
+                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-cream-200 flex items-center justify-center font-bold text-cafe-gold">👑</span><span>Рекомендация Мишель</span></div>
+                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-cream-200 flex items-center justify-center font-bold text-cafe-gold">🌿</span><span>Вегетарианская позиция</span></div>
+                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-cream-200 flex items-center justify-center font-bold text-cafe-gold">🌾</span><span>Безглютеновая позиция</span></div>
+                        <div class="flex items-center space-x-2"><span class="w-5 h-5 rounded-full bg-cream-200 flex items-center justify-center font-bold text-cafe-gold">🥛</span><span>Безлактозная позиция</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-cream-200/60 border-t border-cream-300 mt-auto py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-full border border-cafe-gold/50 flex items-center justify-center bg-cream-100">
+                    <i class="fa-solid fa-mug-hot text-cafe-gold"></i>
+                </div>
+                <div>
+                    <span class="text-lg font-serif font-bold text-cafe-dark">МИШЕЛЬ</span>
+                    <span class="block text-[10px] uppercase tracking-widest text-cafe-muted">все права защищены © 2026</span>
+                </div>
+            </div>
+            <div class="text-sm text-cafe-muted text-center md:text-right">
+                <p>Заказы оформляются через WhatsApp мгновенно.</p>
+                <p class="text-cafe-gold font-medium mt-1"><i class="fa-brands fa-whatsapp mr-1"></i> +996 500 000 000</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cart & Checkout Slide-over Modal -->
+    <div id="cart-modal" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black/40 backdrop-blur-sm transition-opacity" onclick="closeCart()"></div>
+        <div class="absolute inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-cream-50 shadow-2xl flex flex-col border-l border-cream-200">
+                <!-- Cart Header -->
+                <div class="p-6 border-b border-cream-200 flex items-center justify-between bg-cream-100">
+                    <h2 class="text-xl font-serif font-bold text-cafe-dark flex items-center">
+                        <i class="fa-solid fa-bag-shopping text-cafe-gold mr-2.5"></i> Ваша корзина
+                    </h2>
+                    <button onclick="closeCart()" class="text-cafe-muted hover:text-cafe-dark text-xl p-1">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <!-- Cart Body Items -->
+                <div id="cart-items-container" class="flex-1 overflow-y-auto p-6 space-y-4">
+                    <!-- Populated via JS -->
+                </div>
+
+                <!-- Checkout Form & Total Footer -->
+                <div id="cart-footer" class="border-t border-cream-200 p-6 bg-cream-100/60">
+                    <div id="checkout-form-container">
+                        <div class="flex justify-between items-center mb-4">
+                            <span class="font-medium text-cafe-dark">Итого к оплате:</span>
+                            <span id="cart-total-price" class="text-2xl font-serif font-bold text-cafe-gold">0 сом</span>
+                        </div>
+
+                        <form id="order-form" onsubmit="submitOrderToWhatsApp(event)" class="space-y-3">
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Ваше имя *</label>
+                                <input type="text" id="order-name" required placeholder="Введите ваше имя" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Номер телефона *</label>
+                                <input type="tel" id="order-phone" required placeholder="+996 XXX XXXXXX" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Способ получения</label>
+                                <select id="order-type" onchange="toggleDeliveryAddress()" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold">
+                                    <option value="Доставка">Доставка курьером</option>
+                                    <option value="Самовывоз">Самовывоз из кафе</option>
+                                </select>
+                            </div>
+                            <!-- Филлиал тандах бөлүмү -->
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Филиал *</label>
+                                <select id="order-branch" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold">
+                                    <option value="Филиал: ул. Киевская, 114 (Центр)">ул. Киевская, 114 (Центр)</option>
+                                    <option value="Филиал: пр. Ч. Айтматова, 30 (Южная магистраль)">пр. Ч. Айтматова, 30 (Южная магистраль)</option>
+                                    <option value="Филиал: мкр. Тунгуч, ул. Шабдан Баатыра, 4/1">мкр. Тунгуч, ул. Шабдан Баатыра, 4/1</option>
+                                </select>
+                            </div>
+                            <div id="address-field-wrapper">
+                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Адрес доставки *</label>
+                                <input type="text" id="order-address" placeholder="Улица, дом, квартира" class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-semibold uppercase text-cafe-muted mb-1">Комментарий к заказу</label>
+                                <textarea id="order-comment" rows="2" placeholder="Пожелания по заказу..." class="w-full bg-cream-50 border border-cream-300 rounded-xl px-4 py-2.5 text-sm text-cafe-dark focus:outline-none focus:border-cafe-gold resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-medium py-3.5 rounded-xl transition shadow-sm flex items-center justify-center space-x-2 mt-2">
+                                <i class="fa-brands fa-whatsapp text-lg"></i>
+                                <span>Отправить заказ в WhatsApp</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast / Modal -->
+    <div id="notification-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/40 backdrop-blur-sm hidden px-4">
+        <div class="bg-cream-50 border border-cream-200 rounded-3xl p-8 max-w-sm w-full text-center shadow-2xl">
+            <div class="w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-4 text-2xl">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h3 class="text-2xl font-serif font-bold text-cafe-dark mb-2">Заказ сформирован!</h3>
+            <p id="notification-text" class="text-sm text-cafe-muted mb-6">Мы открываем WhatsApp с готовым текстом вашего заказа для отправки администратору.</p>
+            <button onclick="closeNotification()" class="w-full bg-cafe-gold text-white py-3 rounded-xl font-medium transition">
+                Понятно
+            </button>
+        </div>
+    </div>
+
+    <!-- Application Script -->
+    <script>
+        // Menu Data inspired by authentic cafe menu screenshots
+        const menuDishes = [
+            // Салаты
+            {
+                id: 'salad-1',
+                category: 'salads',
+                name: 'Со шпинатом и тофу',
+                weight: '230 г',
+                price: 530,
+                description: 'Состав: сыр тофу веган, томаты, шпинат, соус.',
+                tags: ['🌿', '🌾'],
+                image: 'https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'salad-2',
+                category: 'salads',
+                name: 'Хумус с томатами',
+                weight: '270 г',
+                price: 470,
+                description: 'Состав: нут хумус, томаты, вяленый томат, руккола, кунжут, багет на закваске.',
+                tags: ['🌿'],
+                image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'salad-3',
+                category: 'salads',
+                name: 'Теплый салат с телятиной',
+                weight: '280 г',
+                price: 760,
+                description: 'Состав: телятина, сыр брынза, томаты, шпинат, руккола, пикантный фирменный соус.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'salad-4',
+                category: 'salads',
+                name: 'Салат с халуми',
+                weight: '250 г',
+                price: 640,
+                description: 'Состав: сыр халуми, сыр пармезан, томаты черри, огурцы, шпинат, айсберг, соус.',
+                tags: ['🌿'],
+                image: 'https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'salad-5',
+                category: 'salads',
+                name: 'Тартар из форели',
+                weight: '220 г',
+                price: 995,
+                description: 'Состав: форель, авокадо, капуста, фиолетовый лук, лимон, специи.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1534422298391-e4f8c172dddb?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'salad-6',
+                category: 'salads',
+                name: 'Греческий салат',
+                weight: '260 г',
+                price: 580,
+                description: 'Состав: сыр фетакса, томаты, огурцы, маслины, микс салатов, оливковое масло.',
+                tags: ['🌿'],
+                image: 'https://images.unsplash.com/photo-1592417817098-8f3d691a4bf5?auto=format&fit=crop&w=600&q=80'
+            },
+
+            // Завтраки
+            {
+                id: 'bf-1',
+                category: 'breakfasts',
+                name: 'Овсяная каша на кокосовом молоке',
+                weight: '280 г',
+                price: 290,
+                description: 'Состав: овсяные хлопья, кокосовое молоко, бананы, смородина, фисташки, мятный сироп.',
+                tags: ['🌿', '🥛'],
+                image: 'https://images.unsplash.com/photo-1584776296944-ab6fb57b0bdd?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'bf-2',
+                category: 'breakfasts',
+                name: 'Шпинатные блины со сметаной',
+                weight: '250 г',
+                price: 250,
+                description: 'Состав: овсяная мука, рисовая мука, яйца, молоко, шпинат, сметана.',
+                tags: ['🌿'],
+                image: 'https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'bf-3',
+                category: 'breakfasts',
+                name: 'Деревенский завтрак',
+                weight: '340 г',
+                price: 370,
+                description: 'Состав: яйца, говяжьи колбаски, картофель, томаты, болгарский перец, руккола.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1533089860892-a7c6f0a88666?auto=format&fit=crop&w=600&q=80'
+            },
+
+            // Супы
+            {
+                id: 'soup-1',
+                category: 'soups',
+                name: 'Уха по-норвежски',
+                weight: '350 г',
+                price: 915,
+                description: 'Состав: форель, картофель, морковь, ароматный соуси, сливки, зелень.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'soup-2',
+                category: 'soups',
+                name: 'Том Ям',
+                weight: '350 г',
+                price: 895,
+                description: 'Состав: тигровые креветки, рис, кокосовое молоко, лемонграсс, паста том ям, шампиньоны, лайм.',
+                tags: ['🌶️', '👑'],
+                image: 'https://images.unsplash.com/photo-1569718212165-3a8278d5f624?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'soup-3',
+                category: 'soups',
+                name: 'Грибной суп-крем',
+                weight: '300 г',
+                price: 450,
+                description: 'Состав: шампиньоны, вешенки, морковь, репчатый лук, сливки.',
+                tags: ['🌿'],
+                image: 'https://images.unsplash.com/photo-1603105037880-880cd4edfb6d?auto=format&fit=crop&w=600&q=80'
+            },
+
+            // Горячие блюда
+            {
+                id: 'hot-1',
+                category: 'hot',
+                name: 'Стейк Нью-Йорк',
+                weight: '350 г',
+                price: 1995,
+                description: 'Состав: стейк рибай-нью-йорк, гриль, кукуруза, томаты черри, салат, ореховый соус.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hot-2',
+                category: 'hot',
+                name: 'Креветки в чесночном соусе',
+                weight: '280 г',
+                price: 1150,
+                description: 'Состав: тигровые креветки, лимон, чеснок, зелень.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'hot-3',
+                category: 'hot',
+                name: 'Утка с овощами шато',
+                weight: '320 г',
+                price: 990,
+                description: 'Состав: утиная грудка, спаржа, картофель, кабачок, морковь, ягодный соус.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1514944298352-f4d732115f08?auto=format&fit=crop&w=600&q=80'
+            },
+
+            // Пицца
+            {
+                id: 'pizza-1',
+                category: 'pizza',
+                name: 'Пепперони (итальянская)',
+                weight: '500 г',
+                price: 750,
+                description: 'Состав: колбаса пепперони, сыр моцарелла, томатный соус на тонком тесте.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'pizza-2',
+                category: 'pizza',
+                name: '4 сыра',
+                weight: '480 г',
+                price: 810,
+                description: 'Состав: сыр моцарелла, дор блю, чеддер, пармезан, сливочный соус.',
+                tags: ['🌿'],
+                image: 'https://images.unsplash.com/photo-1573821663912-569905455b1c?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'pizza-3',
+                category: 'pizza',
+                name: 'Мексика',
+                weight: '520 г',
+                price: 820,
+                description: 'Состав: куриная грудка, сыр моцарелла, фета, болгарский перец, халапеньо, красный лук.',
+                tags: ['🌶️'],
+                image: 'https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=600&q=80'
+            },
+
+            // Роллы / Бутерброды
+            {
+                id: 'roll-1',
+                category: 'rolls',
+                name: 'Роллы Цезарь с курицей',
+                weight: '290 г',
+                price: 390,
+                description: 'Состав: куриная грудка, томаты, салат айсберг, соус цезарь, в лаваше.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'roll-2',
+                category: 'rolls',
+                name: 'Багет на закваске с семгой',
+                weight: '270 г',
+                price: 695,
+                description: 'Состав: малосольная семга, томаты, салат айсберг, соус цезарь.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1509722747041-616f39b57569?auto=format&fit=crop&w=600&q=80'
+            },
+            {
+                id: 'roll-3',
+                category: 'rolls',
+                name: 'Круассан с семгой и авокадо',
+                weight: '230 г',
+                price: 633,
+                description: 'Состав: малосольная семга, авокадо, помидор, листья салата, творожный соус.',
+                tags: ['👑'],
+                image: 'https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80'
+            }
+        ];
+
+        // Breakfast Constructor Options
+        const constructorData = {
+            bases: [
+                { id: 'b1', name: '2 яйца (пашот / глазунья / скрамбл / омлет)', price: 95, type: 'radio' },
+                { id: 'b2', name: 'Дополнительное яйцо', price: 55, type: 'radio' }
+            ],
+            toppings: [
+                {
+                    category: 'Овощи',
+                    items: [
+                        { id: 't1', name: 'Томаты черри', price: 85 },
+                        { id: 't2', name: 'Авокадо', price: 135 },
+                        { id: 't3', name: 'Оливки / маслины', price: 130 },
+                        { id: 't4', name: 'Огурец', price: 65 },
+                        { id: 't5', name: 'Халапеньо', price: 55 }
+                    ]
+                },
+                {
+                    category: 'Мясо и Рыба',
+                    items: [
+                        { id: 't6', name: 'Малосольная семга', price: 230 },
+                        { id: 't7', name: 'Охотничьи колбаски', price: 130 }
+                    ]
+                },
+                {
+                    category: 'Сыр',
+                    items: [
+                        { id: 't8', name: 'Брынза', price: 80 },
+                        { id: 't9', name: 'Творожный сыр', price: 130 },
+                        { id: 't10', name: 'Тильзитский', price: 95 },
+                        { id: 't11', name: 'Сыр с плесенью', price: 170 },
+                        { id: 't12', name: 'Пармезан', price: 125 }
+                    ]
+                },
+                {
+                    category: 'Хлеб',
+                    items: [
+                        { id: 't13', name: 'Багет на закваске (1 шт)', price: 110 },
+                        { id: 't14', name: 'Тостерный хлеб (2 кус)', price: 90 },
+                        { id: 't15', name: 'Гриссини (2 шт)', price: 70 }
+                    ]
+                }
+            ]
+        };
+
+        // Cart State
+        let cart = [];
+        let selectedConstructorBase = null;
+        let selectedConstructorToppings = {}; // id -> count/bool
+
+        // Initialize App on DOM Load
+        document.addEventListener('DOMContentLoaded', () => {
+            renderMenu('all');
+            renderConstructor();
+            updateCartUI();
+        });
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Render Menu Catalog
+        function renderMenu(category) {
+            const grid = document.getElementById('dishes-grid');
+            grid.innerHTML = '';
+
+            const filtered = category === 'all' ? menuDishes : menuDishes.filter(d => d.category === category);
+
+            // Update active tab styles
+            document.querySelectorAll('.category-tab').forEach(tab => {
+                tab.className = 'category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cream-100 hover:bg-cream-200 text-cafe-dark border border-cream-300';
+            });
+            const activeTab = document.getElementById(`tab-${category}`);
+            if (activeTab) {
+                activeTab.className = 'category-tab whitespace-nowrap px-6 py-2.5 rounded-full text-sm font-medium transition bg-cafe-gold text-white shadow-sm';
+            }
+
+            filtered.forEach(dish => {
+                const card = document.createElement('div');
+                card.className = 'bg-cream-50 rounded-3xl border border-cream-200 overflow-hidden shadow-sm hover:shadow-md transition duration-300 flex flex-col';
+                card.innerHTML = `
+                    <div class="relative h-52 overflow-hidden bg-cream-200">
+                        <img src="${dish.image}" alt="${dish.name}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/f7f2e8/2c2621?text=Michel'">
+                        <div class="absolute top-3 right-3 flex space-x-1.5 bg-cream-50/90 backdrop-blur-sm px-2.5 py-1 rounded-full text-xs shadow-sm">
+                            ${dish.tags.map(t => `<span>${t}</span>`).join('')}
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow justify-between">
+                        <div>
+                            <div class="flex items-start justify-between gap-2 mb-2">
+                                <h3 class="font-serif font-bold text-lg text-cafe-dark">${dish.name}</h3>
+                                <span class="text-xs font-medium text-cafe-muted bg-cream-100 px-2.5 py-1 rounded-full whitespace-nowrap">${dish.weight}</span>
+                            </div>
+                            <p class="text-xs text-cafe-muted mb-4 line-clamp-2 leading-relaxed">${dish.description}</p>
+                        </div>
+                        <div class="flex items-center justify-between pt-4 border-t border-cream-200">
+                            <span class="text-xl font-serif font-bold text-cafe-gold">${dish.price} сом</span>
+                            <button onclick="addToCart('${dish.id}', 'dish')" class="bg-cafe-dark hover:bg-cafe-gold text-white px-4 py-2.5 rounded-xl text-xs font-medium transition flex items-center space-x-1.5 shadow-sm">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>В корзину</span>
+                            </button>
+                        </div>
+                    </div>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        function filterCategory(cat) {
+            renderMenu(cat);
+        }
+
+        // Render Breakfast Constructor
+        function renderConstructor() {
+            const basesContainer = document.getElementById('constructor-bases');
+            basesContainer.innerHTML = '';
+            constructorData.bases.forEach(base => {
+                const div = document.createElement('label');
+                div.className = 'flex items-center justify-between p-3.5 rounded-xl border border-cream-200 bg-cream-50 hover:bg-cream-100 cursor-pointer transition';
+                div.innerHTML = `
+                    <div class="flex items-center space-x-3">
+                        <input type="radio" name="constructor-base" value="${base.id}" onchange="selectBase('${base.id}')" class="text-cafe-gold focus:ring-cafe-gold">
+                        <span class="text-sm font-medium text-cafe-dark">${base.name}</span>
+                    </div>
+                    <span class="text-sm font-serif font-semibold text-cafe-gold">${base.price} сом</span>
+                `;
+                basesContainer.appendChild(div);
+            });
+
+            const groupsContainer = document.getElementById('constructor-toppings-groups');
+            groupsContainer.innerHTML = '';
+            constructorData.toppings.forEach(group => {
+                const groupDiv = document.createElement('div');
+                groupDiv.className = 'mb-4';
+                groupDiv.innerHTML = `
+                    <h4 class="text-xs font-semibold uppercase tracking-wider text-cafe-muted mb-2">${group.category}</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                        ${group.items.map(item => `
+                            <div class="flex items-center justify-between p-2.5 rounded-xl border border-cream-200 bg-cream-50 hover:bg-cream-100 cursor-pointer transition" onclick="toggleConstructorTopping('${item.id}')">
+                                <div class="flex items-center space-x-2.5">
+                                    <input type="checkbox" id="top-${item.id}" ${selectedConstructorToppings[item.id] ? 'checked' : ''} onchange="toggleConstructorTopping('${item.id}')" class="rounded text-cafe-gold focus:ring-cafe-gold">
+                                    <span class="text-xs font-medium text-cafe-dark">${item.name}</span>
+                                </div>
+                                <span class="text-xs font-semibold text-cafe-gold">+${item.price} с</span>
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+                groupsContainer.appendChild(groupDiv);
+            });
+        }
+
+        function selectBase(baseId) {
+            selectedConstructorBase = constructorData.bases.find(b => b.id === baseId);
+            updateConstructorSummary();
+        }
+
+        function toggleConstructorTopping(topId) {
+            // Find in toppings
+            let found = null;
+            constructorData.toppings.forEach(g => {
+                g.items.forEach(i => {
+                    if (i.id === topId) found = i;
+                });
+            });
+
+            if (!found) return;
+
+            if (selectedConstructorToppings[topId]) {
+                delete selectedConstructorToppings[topId];
+            } else {
+                selectedConstructorToppings[topId] = found;
+            }
+
+            // Sync checkbox
+            const cb = document.getElementById(`top-${topId}`);
+            if (cb) cb.checked = !!selectedConstructorToppings[topId];
+
+            updateConstructorSummary();
+        }
+
+        function updateConstructorSummary() {
+            const listContainer = document.getElementById('constructor-selected-list');
+            const totalEl = document.getElementById('constructor-total');
+            const btn = document.getElementById('constructor-btn');
+
+            listContainer.innerHTML = '';
+            let total = 0;
+
+            if (!selectedConstructorBase) {
+                listContainer.innerHTML = '<p class="italic text-gray-400">Выберите основу для начала...</p>';
+                totalEl.textContent = '0 сом';
+                btn.disabled = true;
+                btn.className = 'w-full bg-cafe-gold/50 cursor-not-allowed text-white py-3.5 rounded-xl font-medium transition shadow-sm';
+                return;
+            }
+
+            total += selectedConstructorBase.price;
+            let itemsHtml = `<div class="flex justify-between text-xs"><span class="font-medium text-cafe-dark">${selectedConstructorBase.name}</span><span>${selectedConstructorBase.price} с</span></div>`;
+
+            Object.values(selectedConstructorToppings).forEach(top => {
+                total += top.price;
+                itemsHtml += `<div class="flex justify-between text-xs text-cafe-muted"><span class="pl-2">+ ${top.name}</span><span>${top.price} с</span></div>`;
+            });
+
+            listContainer.innerHTML = itemsHtml;
+            totalEl.textContent = `${total} сом`;
+            btn.disabled = false;
+            btn.className = 'w-full bg-cafe-gold hover:bg-cafe-goldHover text-white py-3.5 rounded-xl font-medium transition shadow-sm cursor-pointer';
+        }
+
+        function addConstructorToCart() {
+            if (!selectedConstructorBase) return;
+
+            let descParts = [];
+            let toppingsList = Object.values(selectedConstructorToppings);
+            toppingsList.forEach(t => descParts.push(t.name));
+
+            let calcPrice = selectedConstructorBase.price;
+            toppingsList.forEach(t => calcPrice += t.price);
+
+            const customBreakfast = {
+                cartId: 'cb-' + Date.now(),
+                name: 'Конструктор завтрака: ' + selectedConstructorBase.name,
+                description: descParts.length ? 'Добавки: ' + descParts.join(', ') : 'Без добавок',
+                price: calcPrice,
+                weight: '350 г',
+                quantity: 1,
+                image: 'https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=600&q=80'
+            };
+
+            cart.push(customBreakfast);
+            updateCartUI();
+            openCart();
+
+            // Reset constructor
+            selectedConstructorBase = null;
+            selectedConstructorToppings = {};
+            document.querySelectorAll('input[name="constructor-base"]').forEach(el => el.checked = false);
+            renderConstructor();
+            updateConstructorSummary();
+        }
+
+        // Cart Management Functions
+        function addToCart(id, type) {
+            const dish = menuDishes.find(d => d.id === id);
+            if (!dish) return;
+
+            const existing = cart.find(item => item.id === id && !item.cartId);
+            if (existing) {
+                existing.quantity += 1;
+            } else {
+                cart.push({ ...dish, quantity: 1 });
+            }
+
+            updateCartUI();
+            openCart();
+        }
+
+        function updateQuantity(cartIdOrIndex, change, isCustom) {
+            if (isCustom) {
+                const item = cart.find(i => i.cartId === cartIdOrIndex);
+                if (item) {
+                    item.quantity += change;
+                    if (item.quantity <= 0) {
+                        cart = cart.filter(i => i.cartId !== cartIdOrIndex);
+                    }
+                }
+            } else {
+                const item = cart[cartIdOrIndex];
+                if (item) {
+                    item.quantity += change;
+                    if (item.quantity <= 0) {
+                        cart.splice(cartIdOrIndex, 1);
+                    }
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const badge = document.getElementById('cart-badge');
+            const container = document.getElementById('cart-items-container');
+            const totalEl = document.getElementById('cart-total-price');
+
+            const totalCount = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            if (totalCount > 0) {
+                badge.textContent = totalCount;
+                badge.classList.remove('hidden');
+            } else {
+                badge.classList.add('hidden');
+            }
+
+            totalEl.textContent = `${totalPrice} сом`;
+
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="text-center py-16">
+                        <i class="fa-solid fa-basket-shopping text-4xl text-cream-300 mb-3"></i>
+                        <p class="text-cafe-muted text-sm">Ваша корзина пуста</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = '';
+            cart.forEach((item, index) => {
+                const isCustom = !!item.cartId;
+                const identifier = isCustom ? item.cartId : index;
+
+                const div = document.createElement('div');
+                div.className = 'flex items-center justify-between bg-cream-50 p-4 rounded-2xl border border-cream-200';
+                div.innerHTML = `
+                    <div class="flex items-center space-x-3 overflow-hidden">
+                        <img src="${item.image}" alt="" class="w-14 h-14 object-cover rounded-xl shrink-0" onerror="this.src='https://placehold.co/100x100/f7f2e8/2c2621?text=Dish'">
+                        <div class="truncate">
+                            <h4 class="text-sm font-serif font-bold text-cafe-dark truncate">${item.name}</h4>
+                            <p class="text-xs text-cafe-muted truncate">${item.description || item.weight}</p>
+                            <span class="text-xs font-semibold text-cafe-gold mt-1 block">${item.price} сом</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2 shrink-0">
+                        <button onclick="updateQuantity('${identifier}', -1, ${isCustom})" class="w-7 h-7 bg-cream-200 hover:bg-cream-300 rounded-lg flex items-center justify-center text-cafe-dark transition text-xs font-bold">-</button>
+                        <span class="text-xs font-bold w-5 text-center">${item.quantity}</span>
+                        <button onclick="updateQuantity('${identifier}', 1, ${isCustom})" class="w-7 h-7 bg-cream-200 hover:bg-cream-300 rounded-lg flex items-center justify-center text-cafe-dark transition text-xs font-bold">+</button>
+                    </div>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        function openCart() {
+            document.getElementById('cart-modal').classList.remove('hidden');
+        }
+
+        function closeCart() {
+            document.getElementById('cart-modal').classList.add('hidden');
+        }
+
+        function toggleDeliveryAddress() {
+            const type = document.getElementById('order-type').value;
+            const addressWrapper = document.getElementById('address-field-wrapper');
+            const addressInput = document.getElementById('order-address');
+
+            if (type === 'Самовывоз') {
+                addressWrapper.style.display = 'none';
+                addressInput.required = false;
+            } else {
+                addressWrapper.style.display = 'block';
+                addressInput.required = true;
+            }
+        }
+
+        // Submit Order to WhatsApp without errors
+        function submitOrderToWhatsApp(event) {
+            event.preventDefault();
+
+            if (cart.length === 0) return;
+
+            const name = document.getElementById('order-name').value.trim();
+            const phone = document.getElementById('order-phone').value.trim();
+            const orderType = document.getElementById('order-type').value;
+            const branch = document.getElementById('order-branch').value;
+            const address = document.getElementById('order-address').value.trim();
+            const comment = document.getElementById('order-comment').value.trim();
+
+            const totalPrice = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+
+            let message = `🍽 *НОВЫЙ ЗАКАЗ В КАФЕ «МИШЕЛЬ»*\n\n`;
+            message += `👤 *Имя:* ${name}\n`;
+            message += `📞 *Телефон:* ${phone}\n`;
+            message += `📦 *Способ получения:* ${orderType}\n`;
+            message += `🏢 *${branch}*\n`;
+            if (orderType === 'Доставка') {
+                message += `📍 *Адрес:* ${address}\n`;
+            }
+            if (comment) {
+                message += `💬 *Комментарий:* ${comment}\n`;
+            }
+            message += `\n🛒 *СОСТАВ ЗАКАЗА:*\n`;
+
+            cart.forEach((item, idx) => {
+                message += `${idx + 1}. ${item.name} (${item.quantity} шт.) — ${item.price * item.quantity} сом\n`;
+            });
+
+            message += `\n💰 *ИТОГО К ОПЛАТЕ:* *${totalPrice} сом*\n\n`;
+            message += `Пожалуйста, подтвердите заказ. Спасибо!`;
+
+            // WhatsApp Business / Personal target phone number example
+            const whatsappNumber = '+996500000000'; // Example format
+            const encodedMessage = encodeURIComponent(message);
+            const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
+
+            // Open WhatsApp
+            window.open(whatsappUrl, '_blank');
+
+            // Show confirmation modal
+            document.getElementById('notification-modal').classList.remove('hidden');
+            closeCart();
+
+            // Clear cart after successful order creation
+            cart = [];
+            updateCartUI();
+            document.getElementById('order-form').reset();
+        }
+
+        function closeNotification() {
+            document.getElementById('notification-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
